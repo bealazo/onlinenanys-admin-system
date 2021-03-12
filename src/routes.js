@@ -25,6 +25,7 @@ import Icons from "views/examples/Icons.js";
 
 import ListNannys from "views/ListNannys"
 import Home from "views/Home"
+import NannyUpdate from "views/NannyUpdate"
 
 var routes = [
   {
@@ -34,7 +35,6 @@ var routes = [
     component: Home,
     layout: "/admin",
   },
-
   {
     path: "/nannys",
     name: "Nannys",
@@ -42,6 +42,14 @@ var routes = [
     component: ListNannys,
     layout: "/admin",
   },
+  {
+    path: "/actualizar",
+    name: "Actualizar Nanny",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: NannyUpdate,
+    layout: "/admin",
+  }
+ 
  
   /* {
     path: "/index",

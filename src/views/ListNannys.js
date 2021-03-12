@@ -1,12 +1,10 @@
 
-import React, {useState, useEffect} from "react";
-import  { useTable } from "react-table";
+import React from "react";
 
 // reactstrap components
 import {
  
- Col,
- 
+ Col, 
   Container,
   Row,
   Button,
@@ -14,185 +12,239 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-
+  Card,
+  CardHeader,
+  CardFooter,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  Media,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
+  Table,
+  Badge
   
 } from "reactstrap";
 import FuzzySearch from "fuzzy-search";
 
 
-const Listdata=(props)=> {
-    
-               const pageSizeOptions= [5, 10, 15, 20, 25, 30]
-               let pageSize= 5
-               const data=[ 
-                    {
-                      id: 1,
-                      user_first_name: 'Beatriz',
-                      user_last_name: "Lazo Tamayo"
-                     
-                    },
-                    {
-                       
-                      id: 2,
-                      user_first_name: 'Beatriz',
-                      user_last_name: "Lazo Tamayo"
-                      },
-                      {
-                       
-                        id: 3,
-                        user_first_name: 'Beatriz',
-                        user_last_name: "Lazo Tamayo"
+export default class ListNannys extends React.Component{
+
+            constructor(props){
+              super(props)
+            this.state=({
+
+                      pageSizeOptions: [5, 10, 15, 20, 25, 30],
+                      pageSize: 5,
+                      nannys:[ 
+                        {
+                          user_id: 1,
+                          user_first_name:"Beatriz",
+                          user_last_name:"Lazo Tamayo",
+                          user_mobile:"641420802",
+                          user_email:"bea@gmail.com",
+                          user_description:"soy hermosisima",
+                          location_name:'Calle Nebrija, 13, 47010 Valladolid, España',
+                          question_1: "si",
+                          question_2:",bailar,animacion,patinaje,futbol,manualidades,cocinar",
+                          question_3:",jugar,actividades,paciencia",
+                          question_4:",no tengo preferencias",
+                          question_5:"si",
+                          question_6:"si",
+                          question_7:"No tengo preferencias",
+                          question_8:",llamar a los padres,llamar a emergencias",
+                          question_9:",deberes,paseos,futbol,otros deportes,juegos,tareas del hogar,cocinar,organizar,limpiar",
+                          question_10:"si",
+                          educations:[
+                            {
+                            education_name:"Ingeniería informática",
+                            education_center:"Universidad de Valladolid",
+                            education_year:"2018"
+                            },
+                            {
+                              education_name:"Educación Primaria",
+                              education_center:"Universidad de Valladolid",
+                              education_year:"2012"
+                              }
+
+                          ],
+                          experiences:[
+                            {
+                            experiences_place:"parla",
+                            experiences_job:"Niñera ",
+                            experiences_year_begin:"2017",
+                            experiences_year_end:"2019"
+                            },
+                            {
+                              experiences_place:"Valladolid",
+                              experiences_job:"OTS ",
+                              experiences_year_begin:"2020",
+                              experiences_year_end:null
+                              }
+
+                          ]
+                         
                         },
                         {
-                       
-                            id: 4,
+                           
+                          user_id: 2,
+                          user_first_name: 'Beatriz',
+                          user_last_name: "Lazo Tamayo"
+                          },
+                          {
+                           
+                           user_id: 3,
                             user_first_name: 'Beatriz',
                             user_last_name: "Lazo Tamayo"
                             },
                             {
-                       
-                                id: 5,
+                           
+                               user_id: 4,
                                 user_first_name: 'Beatriz',
                                 user_last_name: "Lazo Tamayo"
                                 },
                                 {
-                       
-                                    id: 6,
+                           
+                                    user_id: 5,
                                     user_first_name: 'Beatriz',
                                     user_last_name: "Lazo Tamayo"
                                     },
                                     {
-                       
-                                        id: 7,
+                           
+                                        user_id: 6,
                                         user_first_name: 'Beatriz',
                                         user_last_name: "Lazo Tamayo"
                                         },
                                         {
-                       
-                                            id: 8,
+                           
+                                            user_id: 7,
                                             user_first_name: 'Beatriz',
                                             user_last_name: "Lazo Tamayo"
                                             },
                                             {
-                       
-                                                id: 9,
+                           
+                                                user_id: 8,
                                                 user_first_name: 'Beatriz',
                                                 user_last_name: "Lazo Tamayo"
                                                 },
                                                 {
-                       
-                                                    id: 10,
+                           
+                                                    user_id: 9,
                                                     user_first_name: 'Beatriz',
                                                     user_last_name: "Lazo Tamayo"
-                                                    }
-                    ]
-                    
-                  const [searcher, setSearcher] = useState(null);
-     
-                    useEffect(() => {
-                        try {
+                                                    },
+                                                    {
+                           
+                                                        user_id: 10,
+                                                        user_first_name: 'Beatriz',
+                                                        user_last_name: "Lazo Tamayo"
+                                                        }
+                        ]
+                        
+                  
 
-                            setSearcher(new FuzzySearch(data, ["user_first_name,user_last_name"], {
-                             caseSensitive: false
-                         }));
-                         } catch (error) {
-                 
-                             
-                             
-                         }
-                      });
-                      console.log(data)
+              });
+
+              this.searcher = null;
+              this.handlePageSizeChange = this.handlePageSizeChange.bind(this);
+              this.handleFilterSearch = this.handleFilterSearch.bind(this);
+             // this.handleUpdate=this.handleUpdate.bind(this)
+            
+          }
+
+
+      async componentDidMount(){
+        
+            try {
+    
+                //SUSTITUIR POR LA LLAMADA A LA API
+                let res=this.state.nannys
+                //CONVIERTO LA RESPUESTA A JSON
+                //let nannys=await res.json()
+                let nannys=res
+    
+            /*     this.setState(
+                    {
+                        ...this.state,nannys
+                    }
+                   
+                ) */
+               // Initialize the fuzzy searcher.
+               this.searcher = new FuzzySearch(nannys, ["id","user_first_name", "user_last_name"], {
+                caseSensitive: false
+            });
+            } catch (error) {
+    
+                this.setState(
+                    {
+                        error:error
+                    }
+                )
+                
+            }
+           
+            
+        }
+               
       /**
      * Handles the page size change event.
      */
-      const handlePageSizeChange=(e)=> {
+    handlePageSizeChange=(e)=> {
        
-        pageSize= e.target.value
+      this.setState({
+        ...this.state,
+        pageSize: e.target.value
+        });
       
     }
     /**
     * Handles the global search.
     */
-   const handleFilterSearch=(e)=> {
-       data= searcher.search(e.target.value)
+  handleFilterSearch=(e)=> {
+    this.setState({
+      ...this.state,
+      nannys: this.searcher.search(e.target.value)
+      });
        
     }
 
-    const columns = [
-        {
-          Header: "Id",
-          accessor: "id",
+    handleUpdate=(nanny)=> {
+
          
-        },
+     this.props.history.push({
        
-        {
-          Header: "Nombre",
-          accessor: "user_first_name",
-          
+      pathname:"/admin/actualizar",
+      state: {nanny:nanny}
+    });
          
-    
-        },
-        
-        {
-          Header: "Apellidos",
-          accessor: "user_last_name",
-       
-        },
-        
-      /*   {
-          Header: "Acciones",
-          accessor: "actions",
-          maxWidth: 300,
-          minWidth: 180,
-          style:{overflow:"visible"},
-          sortable: false,
-  
-          Cell: row => (
-           
-           
-               
-                <Button theme="white" style={{cursor:"pointer"}} data-toggle="tooltip" title="Actualizar la nanny"
-                       // onClick={this.handleClick.bind(this,row.original)}
-                >
-                  <i className="material-icons">remove_red_eye</i>
-                </Button>
-  
-              
-          )
-        } */
-      ];
-      const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-      } = useTable({
-        columns,
-        data,
-      });
+    }
+
    
+   render() {
+     const {nannys,pageSize,pageSizeOptions}=this.state
   return (
 <>
     {/* Header */}
     <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h5 className="text-white mb-0 font-weight-bold display-4">data</h5>
+          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys</h5>
           </div>
         </Container>
       </div>
   
       {/* Page content */}
       <Container className="mt--7" fluid>
-      <Row>
+        <Row className="justify-content-end mb-2">
                             {/* Filters :: Page Size */}
-                          {/*  <Col className="file-manager__filters__rows d-flex" md="6">
-                                <span>Mostrar</span>
+                         {/*  <Col className="file-manager__filters__rows d-flex" md="2">
+                                <span>Mostrar: </span>
                                 <Input type="select" name="select" id="exampleSelect"
                                     size="sm"
                                     value={pageSize}
-                                    onChange={()=>handlePageSizeChange}
+                                    onChange={this.handlePageSizeChange}
                                 >
                                 {pageSizeOptions.map((size, idx) => (
                                     <option key={idx} value={size}>
@@ -203,48 +255,24 @@ const Listdata=(props)=> {
                             </Col>  */}
 
                             {/* Filters :: Search */}
-                            <Col className="file-manager__filters__search d-flex" md="6">
+                            <Col className="file-manager__filters__search d-flex" md="2">
                                 <InputGroup seamless size="sm" className="ml-auto">
                                 <InputGroupAddon type="prepend">
-                                    <InputGroupText>
-                                    <i className="material-icons">search</i>
-                                    </InputGroupText>
+                                   
+                                <i className="fa fa-search" />
+                                    
                                 </InputGroupAddon>
-                                <Input onChange={()=>handleFilterSearch} />
+                                <Input onChange={this.handleFilterSearch} />
                                 </InputGroup>
                             </Col>
-                            </Row>
-        {/* Table */}
-      <Row>
-         <table {...getTableProps()}>
-                <thead>
-                    {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map(column => (
-                        <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                        ))}
-                    </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {rows.map((row, i) => {
-                    prepareRow(row)
-                    return (
-                        <tr {...row.getRowProps()}>
-                        {row.cells.map(cell => {
-                            return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                        })}
-                        </tr>
-                    )
-                    })}
-                </tbody>
-            </table>
         </Row>
-      {/*   <Row>
+        {/* Table */}
+     
+     <Row>
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
-                <h3 className="mb-0">Listado de data</h3>
+                <h3 className="mb-0">Listado de nannys</h3>
               </CardHeader>
               <Table className="align-items-center table-flush table-dark" responsive>
                 <thead className="thead-light">
@@ -252,43 +280,18 @@ const Listdata=(props)=> {
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellidos</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col" className="text-right">Acciones</th>
                  
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">
-                      <Media className="align-items-center">
-                        <a
-                          className="avatar rounded-circle mr-3"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <img
-                            alt="..."
-                            src={
-                              require("../assets/img/theme/bootstrap.jpg")
-                                .default
-                            }
-                          />
-                        </a>
-                        <Media>
-                          <span className="mb-0 text-sm">
-                            Argon Design System
-                          </span>
-                        </Media>
-                      </Media>
-                    </th>
-                    <td>$2,500 USD</td>
-                    <td>
-                      <Badge color="" className="badge-dot mr-4">
-                        <i className="bg-warning" />
-                        pending
-                      </Badge>
-                    </td>
-                   
-                    <td className="text-right">
+                { 
+                      nannys.map((nanny, index) => (
+                        <tr key={index}>
+                            <td>{nanny.user_id}</td>
+                            <td>{nanny.user_first_name}</td>
+                            <td>{nanny.user_last_name}</td>
+                            <td className="text-right">
                       <UncontrolledDropdown>
                         <DropdownToggle
                           className="btn-icon-only text-light"
@@ -301,18 +304,29 @@ const Listdata=(props)=> {
                           <i className="fas fa-ellipsis-v" />
                         </DropdownToggle>
                         <DropdownMenu className="dropdown-menu-arrow" right>
+
                           <DropdownItem
-                            href="#pablo"
-                            onClick={(e) => e.preventDefault()}
+                            //href="#"
+                            onClick={this.handleUpdate.bind(this,nanny)}
                           >
+                           {/*  <Link to={{
+                                  pathname: '/admin/actualizar',
+                                  state: {
+                                    fromNotifications: true
+                                  } 
+                                }}>Tyler McGinnis</Link> */}
                             Actualizar
                           </DropdownItem>
-                       
+                          
                         </DropdownMenu>
                       </UncontrolledDropdown>
                     </td>
-                  </tr>
+
+                        </tr>
+                      ))
                   
+                }
+             
                 </tbody>
               </Table>
               <CardFooter className="py-4">
@@ -370,13 +384,13 @@ const Listdata=(props)=> {
             </Card>
           </div>
         </Row>
-       */}
+     
       
       </Container>
       </>
          
-  );
+    );
+  }
+}
 
-};
-export default Listdata;
 
