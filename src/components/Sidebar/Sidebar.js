@@ -70,7 +70,13 @@ const Sidebar = (props) => {
   };
   // creates the links that appear in the left menu / Sidebar
   const createLinks = (routes) => {
-    return routes.map((prop, key) => {
+
+   
+    //OJO To paint the routes without the actualizar-nanny link in the sidebar
+    let ej=routes.slice(0,2)
+   
+
+    return ej.map((prop, key) => {
       return (
         <NavItem key={key}>
           <NavLink
