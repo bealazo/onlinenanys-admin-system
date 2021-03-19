@@ -8,7 +8,8 @@ import {
   Form,
   Input,
   Button,
-  Table
+  Table,
+  FormGroup, Label,
   
 } from "reactstrap";
 
@@ -109,9 +110,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
                />
                
              </Col>
-             
             
-             
            </Row>
            <hr className="my-3" />
            <Row className="justify-content-center mb-5"> <h2 className="display-4">Estudios</h2></Row>
@@ -129,7 +128,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
                 { 
                       form.educations.map((education, index) => (
                         <tr key={index}>
-                            <td>{education.education_name}</td>
+                            <td>{(index+1) + ")" +" " +education.education_name}</td>
                             <td>{education.education_center}</td>
                             <td>{education.education_year}</td>
                             
@@ -158,7 +157,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
                 { 
                       form.experiences.map((experience, index) => (
                         <tr key={index}>
-                            <td>{experience.experiences_job}</td>
+                            <td>{(index+1) + ")" +" " +experience.experiences_job}</td>
                             <td>{experience.experiences_place}</td>
                             <td>{experience.experiences_year_begin}</td>
                             <td>{experience.experiences_year_end}</td>                            
@@ -304,7 +303,317 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            </Row>
            <hr className="my-3" />
            <Row className="justify-content-center mb-5 mt-5"> <h2 className="display-4">Validación del Perfil</h2></Row>
-           <Row form></Row>
+           <Row className="mt-5 mb-2"> <h2 className="display-5">Fortalezas</h2></Row>
+           <Row form>
+           <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" />
+                Entusiasmo y deseos de trabajar
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Colabora con Deberes
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Realiza Tareas del Hogar
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Juega y hace reír a los niños
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Experiencia con niños de todas las edades
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Certificado de Primeros Auxilios
+              </Label>
+              </FormGroup>
+              </Col>
+           </Row>
+           <Row form className="mt-2">
+           <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" />
+                Estudios de Prescolar
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Estudios en Educación Infantil
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Estudios de Cocina y Repostería
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Estudios relacionados con cuidados infantiles
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Profesión Enfermera
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Profesión Monitora de Deportes
+              </Label>
+              </FormGroup>
+              </Col>
+           </Row>
+           <Row form className="mt-2">
+           <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" />
+                Profesión Auxiliar de Enfermería
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Profesión Profesora
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Profesión Profesora de Preescolar - Educación Infantil
+              </Label>
+              </FormGroup>
+              </Col>
+            
+           </Row>
+
+
+           <Row className="mt-5 mb-2"> <h2 className="display-5">Oportunidades</h2></Row>
+           <Row form>
+           <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" />
+                Solo trabaja por las tardes
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Solo trabaja por las mañanas
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Solo trabaja fines de semanas
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Prefiere trabajar con Bebes
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Prefiere trabajar con niños de 2-6
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Prefiere trabajar con niños de 6-12
+              </Label>
+              </FormGroup>
+              </Col>
+           </Row>
+           <Row form className="mt-2">
+           <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" />
+                Prefiere trabajar con niños mayores de 12
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Experiencia sin Titulación Especial
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Experiencia menos de 1 año
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Solo experiencia Familiar
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Solo Español - Natal
+              </Label>
+              </FormGroup>
+              </Col>
+             
+           </Row>
+
+           <Row className="mt-5 mb-2"> <h2 className="display-5">Comentarios</h2></Row>
+           <Row form>
+           <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" />
+                Organizada y Paciente
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Divertida y Afable
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Consistente y Sistemática
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Amable y Entusiasta
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Cariñosa y Atenta
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" />
+                Relajado y Tolerante
+              </Label>
+              </FormGroup>
+              </Col>
+           </Row>
+          
+           <Row className="mt-5 mb-2"> <h2 className="display-5">Validación</h2></Row>
+           <Row form >
+              <Col md="4" className="form-group">
+              <FormGroup>
+                <Label for="profileselect">Tipo de Perfil</Label>
+                <Input type="select" name="select" id="profileselect">
+                  <option>Perfil Junior</option>
+                  <option>Perfil Premium</option>
+                  <option>Perfil Pro</option>                
+                </Input>
+            </FormGroup>
+              </Col>
+              <Col md="4" className="form-group">
+              <FormGroup>
+                <Label for="profileselect">Estado de la Solicitud</Label>
+                <Input type="select" name="select" id="profileselect">
+
+                  {/* OJO Ponerlo por defecto */}
+                  <option>Pendiente Información</option> 
+
+                  <option>Aprobado</option>
+                  <option>Rechazado</option>
+                                
+                </Input>
+            </FormGroup>
+
+            </Col>
+            </Row>
               <Row form className="justify-content-end">
                 <Col md="0">
                               

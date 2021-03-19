@@ -106,7 +106,7 @@ class NannyUpdate extends React.Component{
     <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h5 className="text-white mb-0 font-weight-bold display-4">Información de la nanny</h5>
+          <h5 className="text-white mb-0 font-weight-bold display-4">Actualización del perfil de la nanny</h5>
           </div>
         </Container>
       </div>

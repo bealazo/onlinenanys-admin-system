@@ -230,7 +230,7 @@ export default class ListNannys extends React.Component{
     <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys</h5>
+          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys pendientes</h5>
           </div>
         </Container>
       </div>
