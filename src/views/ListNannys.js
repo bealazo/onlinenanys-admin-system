@@ -4,14 +4,12 @@ import React from "react";
 // reactstrap components
 import {
  
- Col, 
+  Col, 
   Container,
-  Row,
-  Button,
+  Row, 
   Input,
   InputGroup,
-  InputGroupAddon,
-  InputGroupText,
+  InputGroupAddon, 
   Card,
   CardHeader,
   CardFooter,
@@ -19,15 +17,17 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  Media,
   Pagination,
   PaginationItem,
   PaginationLink,
   Table,
-  Badge
-  
+  Alert,
+  Button
+ 
 } from "reactstrap";
 import FuzzySearch from "fuzzy-search";
+import {API_NANNY_ALL} from "constants/const";
+import Utils from "constants/utils_const"
 
 
 export default class ListNannys extends React.Component{
@@ -38,143 +38,47 @@ export default class ListNannys extends React.Component{
 
                       pageSizeOptions: [5, 10, 15, 20, 25, 30],
                       pageSize: 5,
-                      nannys:[ 
-                        {
-                          user_id: 1,
-                          user_first_name:"Beatriz",
-                          user_last_name:"Lazo Tamayo",
-                          user_mobile:"641420802",
-                          user_email:"bea@gmail.com",
-                          user_description:"soy hermosisima",
-                          location_name:'Calle Nebrija, 13, 47010 Valladolid, España',
-                          question_1: "si",
-                          question_2:",bailar,animacion,patinaje,futbol,manualidades,cocinar",
-                          question_3:",jugar,actividades,paciencia",
-                          question_4:",no tengo preferencias",
-                          question_5:"si",
-                          question_6:"si",
-                          question_7:"No tengo preferencias",
-                          question_8:",llamar a los padres,llamar a emergencias",
-                          question_9:",deberes,paseos,futbol,otros deportes,juegos,tareas del hogar,cocinar,organizar,limpiar",
-                          question_10:"si",
-                          educations:[
-                            {
-                            education_name:"Ingeniería informática",
-                            education_center:"Universidad de Valladolid",
-                            education_year:"2018"
-                            },
-                            {
-                              education_name:"Educación Primaria",
-                              education_center:"Universidad de Valladolid",
-                              education_year:"2012"
-                              }
-
-                          ],
-                          experiences:[
-                            {
-                            experiences_place:"parla",
-                            experiences_job:"Niñera ",
-                            experiences_year_begin:"2017",
-                            experiences_year_end:"2019"
-                            },
-                            {
-                              experiences_place:"Valladolid",
-                              experiences_job:"OTS ",
-                              experiences_year_begin:"2020",
-                              experiences_year_end:null
-                              }
-
-                          ]
-                         
-                        },
-                        {
-                           
-                          user_id: 2,
-                          user_first_name: 'Beatriz',
-                          user_last_name: "Lazo Tamayo"
-                          },
-                          {
-                           
-                           user_id: 3,
-                            user_first_name: 'Beatriz',
-                            user_last_name: "Lazo Tamayo"
-                            },
-                            {
-                           
-                               user_id: 4,
-                                user_first_name: 'Beatriz',
-                                user_last_name: "Lazo Tamayo"
-                                },
-                                {
-                           
-                                    user_id: 5,
-                                    user_first_name: 'Beatriz',
-                                    user_last_name: "Lazo Tamayo"
-                                    },
-                                    {
-                           
-                                        user_id: 6,
-                                        user_first_name: 'Beatriz',
-                                        user_last_name: "Lazo Tamayo"
-                                        },
-                                        {
-                           
-                                            user_id: 7,
-                                            user_first_name: 'Beatriz',
-                                            user_last_name: "Lazo Tamayo"
-                                            },
-                                            {
-                           
-                                                user_id: 8,
-                                                user_first_name: 'Beatriz',
-                                                user_last_name: "Lazo Tamayo"
-                                                },
-                                                {
-                           
-                                                    user_id: 9,
-                                                    user_first_name: 'Beatriz',
-                                                    user_last_name: "Lazo Tamayo"
-                                                    },
-                                                    {
-                           
-                                                        user_id: 10,
-                                                        user_first_name: 'Beatriz',
-                                                        user_last_name: "Lazo Tamayo"
-                                                        }
-                        ]
-                        
-                  
-
+                      nannys:[]      
+                       
               });
 
               this.searcher = null;
               this.handlePageSizeChange = this.handlePageSizeChange.bind(this);
               this.handleFilterSearch = this.handleFilterSearch.bind(this);
-             // this.handleUpdate=this.handleUpdate.bind(this)
+              this.getNannys=this.getNannys.bind(this);
             
           }
 
 
       async componentDidMount(){
-        
-            try {
-    
-                //SUSTITUIR POR LA LLAMADA A LA API
-                let res=this.state.nannys
-                //CONVIERTO LA RESPUESTA A JSON
-                //let nannys=await res.json()
-                let nannys=res
-    
-            /*     this.setState(
-                    {
-                        ...this.state,nannys
-                    }
-                   
-                ) */
+       
+            try {            
+              var nannys =[];
+
+              fetch(API_NANNY_ALL, {
+               // mode:"no-cors",
+                method: 'GET',                  
+                headers: new Headers({
+                  'Content-Type': 'application/json'
+                 })                   
+               
+              }).then(Utils.processResponse)
+              .then(res => {
+                const { statusCode, data } = res;
+              
+                if (statusCode === 200) {
+                 
+                  nannys=data
+                  this.setState({nannys: nannys}); 
+                } else {
+                  Alert.alert("Error",'No se ha podido obtener el listado');
+                } 
+              }).catch(error => console.log(error));
+       
                // Initialize the fuzzy searcher.
                this.searcher = new FuzzySearch(nannys, ["id","user_first_name", "user_last_name"], {
                 caseSensitive: false
-            });
+              });
             } catch (error) {
     
                 this.setState(
@@ -221,6 +125,35 @@ export default class ListNannys extends React.Component{
          
     }
 
+    getNannys=()=>{
+
+     
+       var nannys =[];
+
+       fetch(API_NANNY_ALL, {
+        // mode:"no-cors",
+         method: 'GET',                  
+         headers: new Headers({
+           'Content-Type': 'application/json'
+          })                   
+        
+       }).then(Utils.processResponse)
+       .then(res => {
+         const { statusCode, data } = res;
+       
+         if (statusCode === 200) {
+          
+           nannys=data
+           this.setState({nannys: nannys}); 
+         } else {
+          console.log("Error",'No se ha podido obtener el listado')
+         } 
+       }).catch(error => console.log(error));
+
+
+
+    }
+
    
    render() {
      const {nannys,pageSize,pageSizeOptions}=this.state
@@ -230,7 +163,7 @@ export default class ListNannys extends React.Component{
     <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys pendientes</h5>
+          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys pendientes de verificación</h5>
           </div>
         </Container>
       </div>
@@ -257,7 +190,7 @@ export default class ListNannys extends React.Component{
                             {/* Filters :: Search */}
                             <Col className="file-manager__filters__search d-flex" md="2">
                                 <InputGroup seamless size="sm" className="ml-auto">
-                                <InputGroupAddon type="prepend">
+                                <InputGroupAddon addonType="prepend">
                                    
                                 <i className="fa fa-search" />
                                     
@@ -272,7 +205,10 @@ export default class ListNannys extends React.Component{
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
+                <Row>
                 <h3 className="mb-0">Listado de nannys</h3>
+                <Button color="link" className="mt--2" onClick={this.getNannys}><i className="fa fa-sync" /></Button>
+                </Row>
               </CardHeader>
               <Table className="align-items-center table-flush table-dark" responsive>
                 <thead className="thead-light">
