@@ -15,7 +15,7 @@ import {
 
 const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
   
-  <Card small className="mt-1">
+  <Card className="mt-1">
     
     <CardBody>
         <Row className="justify-content-center">
