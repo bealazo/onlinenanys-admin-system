@@ -143,7 +143,6 @@ class NannyUpdate extends React.Component{
        
         e.preventDefault()
 
-        console.log("entré al onsubmit")
 
         //OJO TENGO QUE ENVIAR EL USER_ID Y LOS CAMPOS EDITABLES (COMO STRING)
         
@@ -201,8 +200,7 @@ class NannyUpdate extends React.Component{
                 nany_observaciones:this.state.reviews.value,
                 user_status:this.state.status.selectstatus
             }
-            console.log(data)
-            
+        
                   
            //********CONEXION A LA API**********
 
@@ -257,8 +255,7 @@ class NannyUpdate extends React.Component{
     render(){
       
          let form=this.state.form
-         console.log(this.state)
-      
+       
         return(
             <>
         {/* Modal update */}   
