@@ -13,7 +13,7 @@ import {
   
 } from "reactstrap";
 
-const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
+const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
   
   <Card small className="mt-1">
     
@@ -308,7 +308,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Entusiasmo y deseos de trabajar" onChange={onChangeForces}/>
                 Entusiasmo y deseos de trabajar
               </Label>
           
@@ -317,7 +317,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox"  name= "Colabora con Deberes" onChange={onChangeForces}/>
                 Colabora con Deberes
               </Label>
               </FormGroup>
@@ -325,7 +325,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Realiza Tareas del Hogar" onChange={onChangeForces}/>
                 Realiza Tareas del Hogar
               </Label>
               </FormGroup>
@@ -333,7 +333,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Juega y hace reír a los niños" onChange={onChangeForces}/>
                 Juega y hace reír a los niños
               </Label>
               </FormGroup>
@@ -341,7 +341,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Experiencia con niños de todas las edades" onChange={onChangeForces}/>
                 Experiencia con niños de todas las edades
               </Label>
               </FormGroup>
@@ -349,7 +349,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Certificado de Primeros Auxilios" onChange={onChangeForces} />
                 Certificado de Primeros Auxilios
               </Label>
               </FormGroup>
@@ -359,7 +359,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Estudios de Prescolar" onChange={onChangeForces}/>
                 Estudios de Prescolar
               </Label>
           
@@ -368,7 +368,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox"name= "Estudios en Educación Infantil" onChange={onChangeForces}/>
                 Estudios en Educación Infantil
               </Label>
               </FormGroup>
@@ -376,7 +376,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Estudios de Cocina y Repostería" onChange={onChangeForces} />
                 Estudios de Cocina y Repostería
               </Label>
               </FormGroup>
@@ -384,7 +384,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name= "Estudios relacionados con cuidados infantiles" onChange={onChangeForces} />
                 Estudios relacionados con cuidados infantiles
               </Label>
               </FormGroup>
@@ -392,7 +392,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Profesión Enfermera" onChange={onChangeForces}/>
                 Profesión Enfermera
               </Label>
               </FormGroup>
@@ -400,7 +400,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Profesión Monitora de Deportes" onChange={onChangeForces}/>
                 Profesión Monitora de Deportes
               </Label>
               </FormGroup>
@@ -410,7 +410,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Profesión Auxiliar de Enfermería" onChange={onChangeForces}/>
                 Profesión Auxiliar de Enfermería
               </Label>
           
@@ -427,7 +427,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Profesión Profesora de Preescolar - Educación Infantil" onChange={onChangeForces}/>
                 Profesión Profesora de Preescolar - Educación Infantil
               </Label>
               </FormGroup>
@@ -441,7 +441,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Solo trabaja por las tardes" onChange={onChangeOportunities}/>
                 Solo trabaja por las tardes
               </Label>
           
@@ -450,7 +450,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Solo trabaja por las mañanas" onChange={onChangeOportunities}/>
                 Solo trabaja por las mañanas
               </Label>
               </FormGroup>
@@ -458,7 +458,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Solo trabaja fines de semanas" onChange={onChangeOportunities}/>
                 Solo trabaja fines de semanas
               </Label>
               </FormGroup>
@@ -466,7 +466,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Prefiere trabajar con Bebes" onChange={onChangeOportunities}/>
                 Prefiere trabajar con Bebes
               </Label>
               </FormGroup>
@@ -474,7 +474,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Prefiere trabajar con niños de 2-6" onChange={onChangeOportunities}/>
                 Prefiere trabajar con niños de 2-6
               </Label>
               </FormGroup>
@@ -482,7 +482,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Prefiere trabajar con niños de 6-12" onChange={onChangeOportunities}/>
                 Prefiere trabajar con niños de 6-12
               </Label>
               </FormGroup>
@@ -492,7 +492,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Prefiere trabajar con niños mayores de 12" onChange={onChangeOportunities} />
                 Prefiere trabajar con niños mayores de 12
               </Label>
           
@@ -501,7 +501,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Experiencia sin Titulación Especial" onChange={onChangeOportunities} />
                 Experiencia sin Titulación Especial
               </Label>
               </FormGroup>
@@ -509,7 +509,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Experiencia menos de 1 año" onChange={onChangeOportunities}/>
                 Experiencia menos de 1 año
               </Label>
               </FormGroup>
@@ -517,7 +517,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Solo experiencia Familiar" onChange={onChangeOportunities}/>
                 Solo experiencia Familiar
               </Label>
               </FormGroup>
@@ -525,7 +525,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Solo Español - Natal" onChange={onChangeOportunities} />
                 Solo Español - Natal
               </Label>
               </FormGroup>
@@ -538,7 +538,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Organizada y Paciente" onChange={onChangeComments}/>
                 Organizada y Paciente
               </Label>
           
@@ -547,7 +547,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Divertida y Afable" onChange={onChangeComments}/>
                 Divertida y Afable
               </Label>
               </FormGroup>
@@ -555,7 +555,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Consistente y Sistemática" onChange={onChangeComments}/>
                 Consistente y Sistemática
               </Label>
               </FormGroup>
@@ -563,7 +563,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Amable y Entusiasta" onChange={onChangeComments} />
                 Amable y Entusiasta
               </Label>
               </FormGroup>
@@ -571,7 +571,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Cariñosa y Atenta" onChange={onChangeComments}/>
                 Cariñosa y Atenta
               </Label>
               </FormGroup>
@@ -579,35 +579,44 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="Relajado y Tolerante" onChange={onChangeComments} />
                 Relajado y Tolerante
               </Label>
               </FormGroup>
               </Col>
            </Row>
-          
+           <Row className="mt-5 mb-2"> <h2 className="display-5">Observaciones</h2></Row>
+           <Row form >
+              <Col className="form-group">
+              <FormGroup>
+                <Label for="reviews">Observaciones</Label>
+                <Input name="reviews" onChange={onChangeReviews}>
+                     
+                </Input>
+            </FormGroup>
+              </Col>
+            
+            </Row>
            <Row className="mt-5 mb-2"> <h2 className="display-5">Validación</h2></Row>
            <Row form >
               <Col md="4" className="form-group">
               <FormGroup>
-                <Label for="profileselect">Tipo de Perfil</Label>
-                <Input type="select" name="select" id="profileselect">
-                  <option>Perfil Junior</option>
-                  <option>Perfil Premium</option>
-                  <option>Perfil Pro</option>                
+                <Label for="selectprofile">Tipo de Perfil</Label>
+                <Input type="select" name="selectprofile" onChange={onChangeProfile}>
+                  <option>---Seleccione---</option>
+                  <option value="junior">Perfil Junior</option>
+                  <option value="premium">Perfil Premium</option>
+                  <option value="pro">Perfil Pro</option>                
                 </Input>
             </FormGroup>
               </Col>
               <Col md="4" className="form-group">
               <FormGroup>
-                <Label for="profileselect">Estado de la Solicitud</Label>
-                <Input type="select" name="select" id="profileselect">
-
-                  {/* OJO Ponerlo por defecto */}
-                  <option>Pendiente Información</option> 
-
-                  <option>Aprobado</option>
-                  <option>Rechazado</option>
+                <Label for="selectstate">Estado</Label>
+                <Input type="select" name="selectstatus" onChange={onChangeStatus}>
+                  <option>---Seleccione---</option>
+                  <option value="approved">Aprobado</option>
+                  <option value="reject">Rechazado</option>
                                 
                 </Input>
             </FormGroup>
@@ -617,7 +626,7 @@ const NannyUpdateForm = ({ form,onChange,onSubmit,onCancel}) => (
               <Row form className="justify-content-end">
                 <Col md="0">
                               
-                  <Button className="mb-2 mr-1" color="primary" type="submit">Guardar</Button>
+                  <Button className="mb-2 mr-1" color="primary" type="submit" onSubmit={onSubmit}>Guardar</Button>
                   <Button className="mb-2 mr-1" outline color="primary" onClick={onCancel}>Cancelar</Button>
 
                 </Col>
