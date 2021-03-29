@@ -70,15 +70,16 @@ export default class ListNannys extends React.Component{
                  
                   nannys=data
                   this.setState({nannys: nannys}); 
+                // Initialize the fuzzy searcher.
+               this.searcher = new FuzzySearch(nannys, ["id","user_first_name", "user_last_name","user_email","user_mobile"], {
+                caseSensitive: false
+              });
                 } else {
                   Alert.alert("Error",'No se ha podido obtener el listado');
                 } 
               }).catch(error => console.log(error));
        
-               // Initialize the fuzzy searcher.
-               this.searcher = new FuzzySearch(nannys, ["id","user_first_name", "user_last_name"], {
-                caseSensitive: false
-              });
+          
             } catch (error) {
     
                 this.setState(
@@ -141,9 +142,8 @@ export default class ListNannys extends React.Component{
        .then(res => {
          const { statusCode, data } = res;
        
-         if (statusCode === 200) {
-          
-           nannys=data
+         if (statusCode === 200) {          
+           nannys=data           
            this.setState({nannys: nannys}); 
          } else {
           console.log("Error",'No se ha podido obtener el listado')
@@ -157,6 +157,7 @@ export default class ListNannys extends React.Component{
    
    render() {
      const {nannys,pageSize,pageSizeOptions}=this.state
+     console.log(this.state.nannys)
   return (
 <>
     {/* Header */}
@@ -216,6 +217,8 @@ export default class ListNannys extends React.Component{
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellidos</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Teléfono</th>
                     <th scope="col" className="text-right">Acciones</th>
                  
                   </tr>
@@ -227,6 +230,8 @@ export default class ListNannys extends React.Component{
                             <td>{nanny.user_id}</td>
                             <td>{nanny.user_first_name}</td>
                             <td>{nanny.user_last_name}</td>
+                            <td>{nanny.user_email}</td>
+                            <td>{nanny.user_mobile}</td>
                             <td className="text-right">
                       <UncontrolledDropdown>
                         <DropdownToggle
