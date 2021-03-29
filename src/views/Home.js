@@ -33,7 +33,7 @@ const Home = (props) => {
       <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h1 className="text-white mb-0 font-weight-bold text-center display-2">BIENVENIDO AL SISTEMA DE GESTIÓN DE ONLINENANYS</h1>
+          <h1 className="text-white mb-0 font-weight-bold text-center">BIENVENIDO AL SISTEMA DE GESTIÓN DE ONLINENANYS</h1>
           </div>
         </Container>
       </div>
@@ -43,7 +43,7 @@ const Home = (props) => {
      
       <Card> 
       <CardBody>
-          <CardTitle className="text-center" tag="h1">Sistema para la validación de los perfiles de las nannys registradas en la App</CardTitle>          
+          <CardTitle className="text-center" tag="h2">Sistema para la validación de los perfiles de las nannys registradas en la App</CardTitle>          
         </CardBody>
       
       <CardImg  width="100%" src={

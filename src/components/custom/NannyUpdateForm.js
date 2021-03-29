@@ -85,7 +85,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               
              </Col>
              <Col md="4" className="form-group">
-               <label>Descripción</label>
+               <label>Presentación</label>
                <Input
                 
                  id="user_description"
@@ -101,7 +101,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Row form>
              
              <Col md="4" className="form-group">
-               <label >Dirección</label>
+               <label>Dirección</label>
                <Input
                  id="location_name"
                  name="location_name"
@@ -110,6 +110,25 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
                />
                
              </Col>
+             <Col md="4" className="form-group">
+               <label>Idiomas</label>
+               <Input
+                 id="languages"
+                 name="languages"
+                 value={form.languages}
+                readOnly
+               />               
+             </Col>
+            
+             <Col md="4" className="form-group">
+               <label>Foto de Perfil</label>
+               <Input
+                 id="image"
+                 name="image"
+                 value={form.image_path==null?"NO":"SI"}
+                readOnly
+               />               
+             </Col>            
             
            </Row>
            <hr className="my-3" />
