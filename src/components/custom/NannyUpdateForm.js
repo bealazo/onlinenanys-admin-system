@@ -13,8 +13,9 @@ import {
   
 } from "reactstrap";
 
-const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
-  
+                                                                                                                                                                                                                              
+const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar,checked_jueg,checked_exp,checked_cert,checked_esP,checked_esI,checked_esCR,checked_profE,checked_profM,checked_profA,checked_profP,checked_profPr,checked_estI,checked_solotardes,checked_soloman,checked_solofinde,checked_prefB, checked_pref2, checked_pref6,checked_pref12,checked_expsinT,checked_expmen1,checked_soloexpF,checked_soloEsp,checked_org,checked_div,checked_cons,checked_am,checked_car,checked_rel,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
+ 
   <Card className="mt-1">
     
     <CardBody>
@@ -327,7 +328,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" name= "Entusiasmo y deseos de trabajar" onChange={onChangeForces}/>
+                <Input type="checkbox" name="checked_entusiasmo"checked={checked_entusiasmo} onChange={onChangeForces}/>
                 Entusiasmo y deseos de trabajar
               </Label>
           
@@ -336,7 +337,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox"  name= "Colabora con Deberes" onChange={onChangeForces}/>
+                <Input type="checkbox"  name="checked_colabora" checked={checked_colabora} onChange={onChangeForces}/>
                 Colabora con Deberes
               </Label>
               </FormGroup>
@@ -344,7 +345,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name= "Realiza Tareas del Hogar" onChange={onChangeForces}/>
+                <Input type="checkbox" name="checked_tar" checked={checked_tar} onChange={onChangeForces}/>
                 Realiza Tareas del Hogar
               </Label>
               </FormGroup>
@@ -352,7 +353,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name= "Juega y hace reír a los niños" onChange={onChangeForces}/>
+                <Input type="checkbox" name= "checked_jueg" checked={checked_jueg} onChange={onChangeForces}/>
                 Juega y hace reír a los niños
               </Label>
               </FormGroup>
@@ -360,7 +361,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name= "Experiencia con niños de todas las edades" onChange={onChangeForces}/>
+                <Input type="checkbox" name= "checked_exp" checked={checked_exp} onChange={onChangeForces}/>
                 Experiencia con niños de todas las edades
               </Label>
               </FormGroup>
@@ -368,7 +369,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name= "Certificado de Primeros Auxilios" onChange={onChangeForces} />
+                <Input type="checkbox" name= "checked_cert" checked={checked_cert} onChange={onChangeForces} />
                 Certificado de Primeros Auxilios
               </Label>
               </FormGroup>
@@ -378,7 +379,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" name= "Estudios de Prescolar" onChange={onChangeForces}/>
+                <Input type="checkbox" name= "checked_esP" checked={checked_esP} onChange={onChangeForces}/>
                 Estudios de Prescolar
               </Label>
           
@@ -387,7 +388,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox"name= "Estudios en Educación Infantil" onChange={onChangeForces}/>
+                <Input type="checkbox"name= "checked_esI" checked={checked_esI} onChange={onChangeForces}/>
                 Estudios en Educación Infantil
               </Label>
               </FormGroup>
@@ -395,7 +396,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name= "Estudios de Cocina y Repostería" onChange={onChangeForces} />
+                <Input type="checkbox" name= "checked_esCR" checked={checked_esCR} onChange={onChangeForces} />
                 Estudios de Cocina y Repostería
               </Label>
               </FormGroup>
@@ -403,7 +404,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name= "Estudios relacionados con cuidados infantiles" onChange={onChangeForces} />
+                <Input type="checkbox" name= "checked_estI" checked={checked_estI} onChange={onChangeForces} />
                 Estudios relacionados con cuidados infantiles
               </Label>
               </FormGroup>
@@ -411,7 +412,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Profesión Enfermera" onChange={onChangeForces}/>
+                <Input type="checkbox" name="checked_profE" checked={checked_profE} onChange={onChangeForces}/>
                 Profesión Enfermera
               </Label>
               </FormGroup>
@@ -419,7 +420,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Profesión Monitora de Deportes" onChange={onChangeForces}/>
+                <Input type="checkbox" name="checked_profM" checked={checked_profM} onChange={onChangeForces}/>
                 Profesión Monitora de Deportes
               </Label>
               </FormGroup>
@@ -429,7 +430,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" name="Profesión Auxiliar de Enfermería" onChange={onChangeForces}/>
+                <Input type="checkbox" name="checked_profA" checked={checked_profA} onChange={onChangeForces}/>
                 Profesión Auxiliar de Enfermería
               </Label>
           
@@ -438,7 +439,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" />
+                <Input type="checkbox" name="checked_profP" checked={checked_profP} onChange={onChangeForces} />
                 Profesión Profesora
               </Label>
               </FormGroup>
@@ -446,7 +447,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Profesión Profesora de Preescolar - Educación Infantil" onChange={onChangeForces}/>
+                <Input type="checkbox" name="checked_profPr" checked={checked_profPr} onChange={onChangeForces}/>
                 Profesión Profesora de Preescolar - Educación Infantil
               </Label>
               </FormGroup>
@@ -460,7 +461,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" name="Solo trabaja por las tardes" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_solotardes" checked={checked_solotardes} onChange={onChangeOportunities}/>
                 Solo trabaja por las tardes
               </Label>
           
@@ -469,7 +470,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Solo trabaja por las mañanas" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_soloman"checked={checked_soloman} onChange={onChangeOportunities}/>
                 Solo trabaja por las mañanas
               </Label>
               </FormGroup>
@@ -477,7 +478,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Solo trabaja fines de semanas" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_solofinde" checked={checked_solofinde}onChange={onChangeOportunities}/>
                 Solo trabaja fines de semanas
               </Label>
               </FormGroup>
@@ -485,7 +486,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Prefiere trabajar con Bebes" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_prefB" checked={checked_prefB}onChange={onChangeOportunities}/>
                 Prefiere trabajar con Bebes
               </Label>
               </FormGroup>
@@ -493,7 +494,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Prefiere trabajar con niños de 2-6" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_pref2"checked={checked_pref2} onChange={onChangeOportunities}/>
                 Prefiere trabajar con niños de 2-6
               </Label>
               </FormGroup>
@@ -501,7 +502,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Prefiere trabajar con niños de 6-12" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_pref6" checked={checked_pref6} onChange={onChangeOportunities}/>
                 Prefiere trabajar con niños de 6-12
               </Label>
               </FormGroup>
@@ -511,7 +512,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" name="Prefiere trabajar con niños mayores de 12" onChange={onChangeOportunities} />
+                <Input type="checkbox" name="checked_pref12"checked={checked_pref12} onChange={onChangeOportunities} />
                 Prefiere trabajar con niños mayores de 12
               </Label>
           
@@ -520,7 +521,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Experiencia sin Titulación Especial" onChange={onChangeOportunities} />
+                <Input type="checkbox" name="checked_expsinT" checked={checked_expsinT} onChange={onChangeOportunities} />
                 Experiencia sin Titulación Especial
               </Label>
               </FormGroup>
@@ -528,7 +529,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Experiencia menos de 1 año" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_expmen1" checked={checked_expmen1} onChange={onChangeOportunities}/>
                 Experiencia menos de 1 año
               </Label>
               </FormGroup>
@@ -536,7 +537,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Solo experiencia Familiar" onChange={onChangeOportunities}/>
+                <Input type="checkbox" name="checked_soloexpF" checked={checked_soloexpF} onChange={onChangeOportunities}/>
                 Solo experiencia Familiar
               </Label>
               </FormGroup>
@@ -544,7 +545,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Solo Español - Natal" onChange={onChangeOportunities} />
+                <Input type="checkbox" name="checked_soloEsp" checked={checked_soloEsp} onChange={onChangeOportunities} />
                 Solo Español - Natal
               </Label>
               </FormGroup>
@@ -557,7 +558,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
            <Col md="2" className="form-group">
                 <FormGroup check>
               <Label check>
-                <Input type="checkbox" name="Organizada y Paciente" onChange={onChangeComments}/>
+                <Input type="checkbox" name="checked_org"  checked={checked_org} onChange={onChangeComments}/>
                 Organizada y Paciente
               </Label>
           
@@ -566,7 +567,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
             <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Divertida y Afable" onChange={onChangeComments}/>
+                <Input type="checkbox" name="checked_div"  checked={checked_div}onChange={onChangeComments}/>
                 Divertida y Afable
               </Label>
               </FormGroup>
@@ -574,7 +575,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Consistente y Sistemática" onChange={onChangeComments}/>
+                <Input type="checkbox" name="checked_cons"  checked={checked_cons}onChange={onChangeComments}/>
                 Consistente y Sistemática
               </Label>
               </FormGroup>
@@ -582,7 +583,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Amable y Entusiasta" onChange={onChangeComments} />
+                <Input type="checkbox" name="checked_am"  checked={checked_am}onChange={onChangeComments} />
                 Amable y Entusiasta
               </Label>
               </FormGroup>
@@ -590,7 +591,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Cariñosa y Atenta" onChange={onChangeComments}/>
+                <Input type="checkbox" name="checked_car"  checked={checked_car} onChange={onChangeComments}/>
                 Cariñosa y Atenta
               </Label>
               </FormGroup>
@@ -598,7 +599,7 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
-                <Input type="checkbox" name="Relajado y Tolerante" onChange={onChangeComments} />
+                <Input type="checkbox" name="checked_rel"  checked={checked_rel} onChange={onChangeComments} />
                 Relajado y Tolerante
               </Label>
               </FormGroup>
@@ -636,6 +637,8 @@ const NannyUpdateForm = ({ form,onChangeForces,onChangeOportunities,onChangeComm
                   <option>---Seleccione---</option>
                   <option value="approved">Aprobado</option>
                   <option value="reject">Rechazado</option>
+                  <option value="reject">Suspendido</option>
+                  <option value="reject">Desactivado</option>
                                 
                 </Input>
             </FormGroup>
