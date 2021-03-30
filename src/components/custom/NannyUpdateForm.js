@@ -112,6 +112,16 @@ const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar
                
              </Col>
              <Col md="4" className="form-group">
+               <label>Disponibilidad</label>
+               <Input
+                 id="disponibilidad"
+                 name="disponibilidad"
+                 value={form.disponibilidad}
+                readOnly
+               />               
+             </Col>
+            
+             <Col md="4" className="form-group">
                <label>Idiomas</label>
                <Input
                  id="languages"
@@ -119,8 +129,12 @@ const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar
                  value={form.languages}
                 readOnly
                />               
-             </Col>
+             </Col>            
             
+           </Row>
+           <Row form>
+             
+           
              <Col md="4" className="form-group">
                <label>Foto de Perfil</label>
                <Input
@@ -610,7 +624,7 @@ const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar
               <Col className="form-group">
               <FormGroup>
                 <Label for="reviews">Observaciones</Label>
-                <Input name="reviews" onChange={onChangeReviews}>
+                <Input name="reviews" defaultValue={form.nany_observaciones} onChange={onChangeReviews}>
                      
                 </Input>
             </FormGroup>
@@ -623,22 +637,26 @@ const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar
               <FormGroup>
                 <Label for="selectprofile">Tipo de Perfil</Label>
                 <Input type="select" name="selectprofile" onChange={onChangeProfile}>
-                  <option>---Seleccione---</option>
-                  <option value="junior">Perfil Junior</option>
-                  <option value="premium">Perfil Premium</option>
-                  <option value="pro">Perfil Pro</option>                
+                  
+                 <option selected={(form.nany_tipo_perfil==""||form.nany_tipo_perfil=="junior")?true:false} value="junior">Perfil Junior</option>  
+                  <option selected={(form.nany_tipo_perfil=="premium")?true:false} value="premium">Perfil Premium</option>
+                  <option selected={(form.nany_tipo_perfil=="pro")?true:false} value="pro">Perfil Pro</option>    
+                           
                 </Input>
             </FormGroup>
               </Col>
               <Col md="4" className="form-group">
               <FormGroup>
-                <Label for="selectstate">Estado</Label>
+                <Label for="selectstatus">Estado</Label>
                 <Input type="select" name="selectstatus" onChange={onChangeStatus}>
-                  <option>---Seleccione---</option>
-                  <option value="approved">Aprobado</option>
-                  <option value="reject">Rechazado</option>
-                  <option value="reject">Suspendido</option>
-                  <option value="reject">Desactivado</option>
+
+                <option selected={(form.user_status==""||form.user_status=="pending")?true:false} value="pending">Pendiente</option>
+                  <option selected={(form.user_status=="approved")?true:false} value="approved">Aprobado</option>
+                  <option selected={(form.user_status=="reject")?true:false} value="reject">Rechazado</option>
+                  <option selected={(form.user_status=="suspend")?true:false} value="suspend">Suspendido</option>
+                  <option selected={(form.user_status=="disable")?true:false} value="disable">Desactivado</option>
+                  <option selected={(form.user_status==""||form.user_status=="pending")?true:false} value="pending">Pendiente</option>
+                  
                                 
                 </Input>
             </FormGroup>
