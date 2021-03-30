@@ -26,6 +26,7 @@ import Icons from "views/examples/Icons.js";
 import ListNannys from "views/ListNannys"
 import Home from "views/Home"
 import NannyUpdate from "views/NannyUpdate"
+import ListNannysApproved from "views/ListNannysApproved"
 
 var routes = [
   {
@@ -36,10 +37,17 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/nannys",
-    name: "Nannys",
-    icon: "ni ni-bullet-list-67 text-red",
+    path: "/nannys-pendientes",
+    name: "Nannys Pendientes",
+    icon: "ni ni-bullet-list-67 text-info",
     component: ListNannys,
+    layout: "/admin",
+  },
+  {
+    path: "/nannys-aprobadas",
+    name: "Nannys Aprobadas",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: ListNannysApproved,
     layout: "/admin",
   },
   {
@@ -48,7 +56,7 @@ var routes = [
     icon: "ni ni-bullet-list-67 text-red",    
     component: NannyUpdate,
     layout: "/admin",
-  }
+  } 
  
  
   /* {
