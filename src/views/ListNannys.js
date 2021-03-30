@@ -121,8 +121,10 @@ export default class ListNannys extends React.Component{
 
     handleUpdate=(nanny)=> {
 
+      console.log(nanny)
+
      //Initialize Forces checkboxes    
-     let forcesarray=(nanny.nany_fortalezas!==null||nanny.nany_fortalezas!=="")? nanny.nany_fortalezas.split(","):[]
+     let forcesarray=(nanny.nany_fortalezas!==null)? nanny.nany_fortalezas.split(","):[]
      let checked_colabora=forcesarray.includes("Colabora con Deberes")?true:false
      let checked_entusiasmo=forcesarray.includes("Entusiasmo y deseos de trabajar")?true:false
      let checked_tar=forcesarray.includes("Realiza Tareas del Hogar")?true:false
@@ -158,7 +160,7 @@ export default class ListNannys extends React.Component{
       }
      
      //Initialize Oportunities checkboxes
-     let oportunitiesarray=(nanny.nany_oportunidades!==null||nanny.nany_oportunidades!=="")? nanny.nany_oportunidades.split(","):[]
+     let oportunitiesarray=(nanny.nany_oportunidades!==null)? nanny.nany_oportunidades.split(","):[]
      let checked_solotardes=oportunitiesarray.includes("Solo trabaja por las tardes")?true:false
      let checked_soloman=oportunitiesarray.includes("Solo trabaja por las mañanas")?true:false
      let checked_solofinde=oportunitiesarray.includes("Solo trabaja fines de semanas")?true:false
@@ -187,7 +189,7 @@ export default class ListNannys extends React.Component{
      }
 
      //Initialize Comments checkboxes
-     let commentsarray=(nanny.nany_comentarios!==null||nanny.nany_comentarios!=="")? nanny.nany_comentarios.split(","):[]
+     let commentsarray=(nanny.nany_comentarios!==null)? nanny.nany_comentarios.split(","):[]
      let checked_org=commentsarray.includes("Organizada y Paciente")?true:false
      let checked_div=commentsarray.includes("Divertida y Afable")?true:false
      let checked_cons=commentsarray.includes("Consistente y Sistemática")?true:false
