@@ -67,11 +67,15 @@ export default class ListNannys extends React.Component{
                 const { statusCode, data } = res;
               
                 if (statusCode === 200) {
-                 
-                  nannys=data
+                  
+                  for (let index = 0; index < data.length; index++) {
+                    if(data[index].user_status=="pending")
+                    nannys.push(data[index])                    
+                  }
+                
                   this.setState({nannys: nannys}); 
                 // Initialize the fuzzy searcher.
-               this.searcher = new FuzzySearch(nannys, ["id","user_first_name", "user_last_name","user_email","user_mobile"], {
+               this.searcher = new FuzzySearch(nannys, ["user_id","user_first_name", "user_last_name","user_email","user_mobile"], {
                 caseSensitive: false
               });
                 } else {
@@ -117,7 +121,7 @@ export default class ListNannys extends React.Component{
 
     handleUpdate=(nanny)=> {
 
-     //Initialize Forces checkboxes
+     //Initialize Forces checkboxes    
      let forcesarray=(nanny.nany_fortalezas!==null||nanny.nany_fortalezas!=="")? nanny.nany_fortalezas.split(","):[]
      let checked_colabora=forcesarray.includes("Colabora con Deberes")?true:false
      let checked_entusiasmo=forcesarray.includes("Entusiasmo y deseos de trabajar")?true:false
@@ -134,6 +138,24 @@ export default class ListNannys extends React.Component{
      let checked_profA=forcesarray.includes("Profesión Auxiliar de Enfermería")?true:false
      let checked_profP=forcesarray.includes("Profesión Profesora")?true:false
      let checked_profPr=forcesarray.includes("Profesión Profesora de Preescolar - Educación Infantil")?true:false
+     let forces={
+       "checked_colabora":checked_colabora,
+       "checked_entusiasmo":checked_entusiasmo,
+       "checked_tar":checked_tar,
+       "checked_jueg":checked_jueg,
+       "checked_exp":checked_exp,
+       "checked_cert":checked_cert,
+       "checked_esP":checked_esP,
+       "checked_esI":checked_esI,
+       "checked_esCR":checked_esCR,
+       "checked_estI":checked_estI,
+       "checked_profE":checked_profE,
+       "checked_profM":checked_profM,
+       "checked_profA":checked_profA,
+       "checked_profP":checked_profP,
+       "checked_profPr":checked_profPr
+
+      }
      
      //Initialize Oportunities checkboxes
      let oportunitiesarray=(nanny.nany_oportunidades!==null||nanny.nany_oportunidades!=="")? nanny.nany_oportunidades.split(","):[]
@@ -148,6 +170,21 @@ export default class ListNannys extends React.Component{
      let checked_expmen1=oportunitiesarray.includes("Experiencia menos de 1 año")?true:false
      let checked_soloexpF=oportunitiesarray.includes("Solo experiencia Familiar")?true:false
      let checked_soloEsp=oportunitiesarray.includes("Solo Español - Natal")?true:false
+     let oportunities={
+      "checked_solotardes":checked_solotardes,
+      "checked_soloman":checked_soloman,
+      "checked_solofinde":checked_solofinde,
+      "checked_prefB":checked_prefB,
+      "checked_pref2":checked_pref2,
+      "checked_pref6":checked_pref6,
+      "checked_pref12":checked_pref12,
+      "checked_expsinT":checked_expsinT,
+      "checked_expmen1":checked_expmen1,
+      "checked_soloexpF":checked_soloexpF,
+      "checked_soloEsp":checked_soloEsp,
+      
+
+     }
 
      //Initialize Comments checkboxes
      let commentsarray=(nanny.nany_comentarios!==null||nanny.nany_comentarios!=="")? nanny.nany_comentarios.split(","):[]
@@ -157,11 +194,23 @@ export default class ListNannys extends React.Component{
      let checked_am=commentsarray.includes("Amable y Entusiasta")?true:false
      let checked_car=commentsarray.includes("Cariñosa y Atenta")?true:false
      let checked_rel=commentsarray.includes("Relajado y Tolerante")?true:false
+     let comments={
+      "checked_org":checked_org,
+      "checked_div":checked_div,
+      "checked_cons":checked_cons,
+      "checked_am":checked_am,
+      "checked_car":checked_car,
+      "checked_rel":checked_rel,
+     
+     }
 
      this.props.history.push({
        
       pathname:"/admin/actualizar",
       state: {nanny:nanny,
+        forces:forces,
+        oportunities:oportunities,
+        comments:comments,
         checked_org:checked_org,
         checked_div:checked_div,
         checked_cons:checked_cons,
@@ -214,8 +263,12 @@ export default class ListNannys extends React.Component{
        .then(res => {
          const { statusCode, data } = res;
        
-         if (statusCode === 200) {          
-           nannys=data           
+         if (statusCode === 200) {
+          for (let index = 0; index < data.length; index++) {
+            if(data[index].user_status=="pending")
+            nannys.push(data[index])                    
+          }     
+                   
            this.setState({nannys: nannys}); 
          } else {
           console.log("Error",'No se ha podido obtener el listado')

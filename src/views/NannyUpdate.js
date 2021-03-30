@@ -17,9 +17,9 @@ class NannyUpdate extends React.Component{
             { 
             
             form: this.props.location.state.nanny, 
-            forces:{},  
-            oportunities:{},
-            comments:{},
+            forces: this.props.location.state.forces,  
+            oportunities:this.props.location.state.oportunities,
+            comments:this.props.location.state.comments,
             profile:{selectprofile:""},
             status:{selectstatus:""},
             reviews:{value:""},
@@ -340,7 +340,7 @@ class NannyUpdate extends React.Component{
                   
            //********CONEXION A LA API**********
 
-         /*   fetch(API_UPDATE_NANNY, {
+         fetch(API_UPDATE_NANNY, {
             // mode:"no-cors",
              method: 'PUT', 
              body: JSON.stringify(data),                 
@@ -358,7 +358,7 @@ class NannyUpdate extends React.Component{
              } else {
                 console.log("Error",'No se ha podido actualizar a la nanny')
              } 
-           }).catch(error => console.log(error)); */
+           }).catch(error => console.log(error));
           
 
             
