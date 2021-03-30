@@ -339,7 +339,7 @@ class NannyUpdate extends React.Component{
         
                   
            //********CONEXION A LA API**********
-/* 
+
          fetch(API_UPDATE_NANNY, {
             // mode:"no-cors",
              method: 'PUT', 
@@ -358,7 +358,7 @@ class NannyUpdate extends React.Component{
              } else {
                 console.log("Error",'No se ha podido actualizar a la nanny')
              } 
-           }).catch(error => console.log(error)); */
+           }).catch(error => console.log(error)); 
           
 
             
