@@ -26,7 +26,14 @@ import Icons from "views/examples/Icons.js";
 import ListNannys from "views/ListNannys"
 import Home from "views/Home"
 import NannyUpdate from "views/NannyUpdate"
+import NannyUpdateApproved from "views/NannyUpdateApproved"
+import NannyUpdateReject from "views/NannyUpdateReject"
+import NannyUpdateSuspend from "views/NannyUpdateSuspend"
+import NannyUpdateDisable from "views/NannyUpdateDisable"
 import ListNannysApproved from "views/ListNannysApproved"
+import ListNannysReject from "views/ListNannysReject"
+import ListNannysSuspend from "views/ListNannysSuspend"
+import ListNannysDisabled from "views/ListNannysDisabled"
 
 var routes = [
   {
@@ -51,10 +58,61 @@ var routes = [
     layout: "/admin",
   },
   {
+    path: "/nannys-rechazadas",
+    name: "Nannys Rechazadas",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: ListNannysReject,
+    layout: "/admin",
+  },
+  {
+    path: "/nannys-suspendidas",
+    name: "Nannys Suspendidas",
+    icon: "ni ni-bullet-list-67 text-warning",    
+    component: ListNannysSuspend,
+    layout: "/admin",
+  },
+  {
+    path: "/nannys-desactivadas",
+    name: "Nannys Desactivadas",
+    icon: "ni ni-bullet-list-67 text-muted",    
+    component: ListNannysDisabled,
+    layout: "/admin",
+  },
+  {
     path: "/actualizar",
     name: "Actualizar Nanny",
     icon: "ni ni-bullet-list-67 text-red",    
     component: NannyUpdate,
+    layout: "/admin",
+  } 
+  ,
+  {
+    path: "/actualizar-nanny-aprobada",
+    name: "Actualizar Nanny",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: NannyUpdateApproved,
+    layout: "/admin",
+  } 
+  ,
+  {
+    path: "/actualizar-nanny-rechazada",
+    name: "Actualizar Nanny",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: NannyUpdateReject,
+    layout: "/admin",
+  },
+  {
+    path: "/actualizar-nanny-suspendida",
+    name: "Actualizar Nanny",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: NannyUpdateSuspend,
+    layout: "/admin",
+  },
+  {
+    path: "/actualizar-nanny-desactivada",
+    name: "Actualizar Nanny",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: NannyUpdateDisable,
     layout: "/admin",
   } 
  

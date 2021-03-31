@@ -73,7 +73,7 @@ const Sidebar = (props) => {
 
    
     //OJO To paint the routes without the actualizar-nanny link in the sidebar
-    let ej=routes.slice(0,3)
+    let ej=routes.slice(0,6)
    
 
     return ej.map((prop, key) => {

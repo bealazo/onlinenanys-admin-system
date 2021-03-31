@@ -1,14 +1,14 @@
 import React from "react";
 import { Container,Row, Modal, ModalHeader, ModalBody, ModalFooter  } from "reactstrap";
 
-import NannyUpdateForm from "../components/custom/NannyUpdateForm"
+import NannyUpdateDisableForm from "../components/custom/NannyUpdateDisableForm"
 import {API_UPDATE_NANNY} from "constants/const"
 import Utils from "constants/utils_const"
 
 
 
 
-class NannyUpdate extends React.Component{
+class NannyUpdateDisable extends React.Component{
     
     constructor(props){
         super(props)
@@ -20,8 +20,8 @@ class NannyUpdate extends React.Component{
             forces: this.props.location.state.forces,  
             oportunities:this.props.location.state.oportunities,
             comments:this.props.location.state.comments,
-            profile:{selectprofile:"junior"},
-            status:{selectstatus:"pending"},
+            profile:{selectprofile:this.props.location.state.nanny.nany_tipo_perfil},
+            status:{selectstatus:"disabled"},
             reviews:{value:""},
             open_modal:false,
 
@@ -85,7 +85,7 @@ class NannyUpdate extends React.Component{
     {
         this.props.history.push({
            
-                pathname:"/admin/nannys-pendientes",
+                pathname:"/admin/nannys-desactivadas",
 
         
         })
@@ -335,7 +335,9 @@ class NannyUpdate extends React.Component{
                 nany_observaciones:this.state.reviews.value,
                 user_status:this.state.status.selectstatus
             }
-          
+            console.log(data)
+        
+                  
            //********CONEXION A LA API**********
 
          fetch(API_UPDATE_NANNY, {
@@ -380,7 +382,7 @@ class NannyUpdate extends React.Component{
            
         })
         this.props.history.push({       
-            pathname:"/admin/nannys-pendientes"                   
+            pathname:"/admin/nannys-desactivadas"                   
           });
        
     }
@@ -415,7 +417,7 @@ class NannyUpdate extends React.Component{
                <Row noGutters className="page-header py-4">
                     
                 </Row>
-                <NannyUpdateForm
+                <NannyUpdateDisableForm
                     
                     form={form}
                   
@@ -473,4 +475,4 @@ class NannyUpdate extends React.Component{
      }
     
 }
-export default NannyUpdate
+export default NannyUpdateDisable

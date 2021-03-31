@@ -22,16 +22,15 @@ import {
   PaginationLink,
   Table,
   Alert,
-  Button,
-  Modal, ModalHeader, ModalBody
+  Button
  
 } from "reactstrap";
 import FuzzySearch from "fuzzy-search";
-import {API_NANNY_ALL, API_UPDATE_NANNY} from "constants/const";
+import {API_NANNY_ALL} from "constants/const";
 import Utils from "constants/utils_const"
 
 
-export default class ListNannysApproved extends React.Component{
+export default class ListNannysDisabled extends React.Component{
 
             constructor(props){
               super(props)
@@ -39,8 +38,6 @@ export default class ListNannysApproved extends React.Component{
 
                       pageSizeOptions: [5, 10, 15, 20, 25, 30],
                       pageSize: 5,
-                      open_modal:false,
-                       
                       nannys:[]      
                        
               });
@@ -49,8 +46,6 @@ export default class ListNannysApproved extends React.Component{
               this.handlePageSizeChange = this.handlePageSizeChange.bind(this);
               this.handleFilterSearch = this.handleFilterSearch.bind(this);
               this.getNannys=this.getNannys.bind(this);
-              this.handleDesactivate=this.handleDesactivate.bind(this);
-              this.toggle=this.toggle.bind(this)
             
           }
 
@@ -75,7 +70,7 @@ export default class ListNannysApproved extends React.Component{
                     console.log(data)
                   for (let index = 0; index < data.length; index++) {
                      
-                    if(data[index].user_status=="approved")
+                    if(data[index].user_status=="disabled")
                     nannys.push(data[index])                    
                   }
                 
@@ -102,79 +97,6 @@ export default class ListNannysApproved extends React.Component{
            
             
         }
-
-        toggle(){
-        
-          this.setState({
-              open_modal:!this.state.open_modal,
-             
-          })
-
-          var nannys =[];
-
-          fetch(API_NANNY_ALL, {
-            // mode:"no-cors",
-             method: 'GET',                  
-             headers: new Headers({
-               'Content-Type': 'application/json'
-              })                   
-            
-           }).then(Utils.processResponse)
-           .then(res => {
-             const { statusCode, data } = res;
-           
-             if (statusCode === 200) {
-               
-               for (let index = 0; index < data.length; index++) {
-                 if(data[index].user_status=="approved")
-                 nannys.push(data[index])                    
-               }
-             
-               this.setState({nannys: nannys}); 
-             // Initialize the fuzzy searcher.
-            this.searcher = new FuzzySearch(nannys, ["user_id","user_first_name", "user_last_name","user_email","user_mobile"], {
-             caseSensitive: false
-           });
-             } else {
-              Alert.alert("Error",'No se ha podido obtener el listado');
-             } 
-           }).catch(error => console.log(error));
-         
-      }
-          /**
-     * Handles the disable nanny´s account.
-     */
-    handleDesactivate=(nanny)=> {
-
-      let data={
-        user_id:nanny.user_id,        
-        user_status:"disabled"
-    }
-    console.log(data)
-       
-        //********CONEXION A LA API**********
-
-        fetch(API_UPDATE_NANNY, {
-          // mode:"no-cors",
-           method: 'PUT', 
-           body: JSON.stringify(data),                 
-           headers: new Headers({
-             'Content-Type': 'application/json'
-            })                   
-          
-         }).then(Utils.processResponse)
-         .then(res => {
-           const { statusCode, data } = res;
-         
-           if (statusCode === 200) {
-            this.setState({open_modal:true});
-           } else {
-              console.log("Error",'No se ha podido desactivar la nanny')
-           } 
-         }).catch(error => console.log(error));        
-    
-      
-    }   
                
       /**
      * Handles the page size change event.
@@ -287,7 +209,7 @@ export default class ListNannysApproved extends React.Component{
 
      this.props.history.push({
        
-      pathname:"/admin/actualizar-nanny-aprobada",
+      pathname:"/admin/actualizar-nanny-desactivada",
       state: {nanny:nanny,
         forces:forces,
         oportunities:oportunities,
@@ -346,7 +268,7 @@ export default class ListNannysApproved extends React.Component{
        
          if (statusCode === 200) {
           for (let index = 0; index < data.length; index++) {
-            if(data[index].user_status=="approved")
+            if(data[index].user_status=="disabled")
             nannys.push(data[index])                    
           }     
                    
@@ -366,19 +288,11 @@ export default class ListNannysApproved extends React.Component{
   
   return (
 <>
-{/* Modal update */}   
-<Modal isOpen={this.state.open_modal} toggle={this.toggle}>
-        <ModalHeader toggle={this.toggle}>Información</ModalHeader>
-        <ModalBody>
-        Nanny desactivada.
-        </ModalBody>
-        
-      </Modal>
     {/* Header */}
     <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys aprobadas</h5>
+          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys desactivadas</h5>
           </div>
         </Container>
       </div>
@@ -471,12 +385,6 @@ export default class ListNannysApproved extends React.Component{
                                   } 
                                 }}>Tyler McGinnis</Link> */}
                             Actualizar
-                          </DropdownItem>
-                          <DropdownItem
-                            //href="#"
-                            onClick={this.handleDesactivate.bind(this,nanny)}
-                          >
-                            Desactivar
                           </DropdownItem>
                           
                         </DropdownMenu>
