@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 
                                                                                                                                                                                                                               
-const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar,checked_jueg,checked_exp,checked_cert,checked_esP,checked_esI,checked_esCR,checked_profE,checked_profM,checked_profA,checked_profP,checked_profPr,checked_estI,checked_solotardes,checked_soloman,checked_solofinde,checked_prefB, checked_pref2, checked_pref6,checked_pref12,checked_expsinT,checked_expmen1,checked_soloexpF,checked_soloEsp,checked_org,checked_div,checked_cons,checked_am,checked_car,checked_rel,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
+const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar,checked_jueg,checked_exp,checked_cert,checked_esP,checked_esI,checked_esCR,checked_profE,checked_profM,checked_profA,checked_profP,checked_profPr,checked_estI,checked_solotardes,checked_soloman,checked_solofinde,checked_prefB, checked_pref2, checked_pref6,checked_pref12,checked_expsinT,checked_expmen1,checked_soloexpF,checked_soloEsp,checked_org,checked_div,checked_cons,checked_am,checked_car,checked_rel,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
  
   <Card className="mt-1">
     
@@ -679,18 +679,16 @@ const NannyUpdateForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar
   </Card>
 );
 
-NannyUpdateForm.propTypes = {
+NannyUpdateDisableForm.propTypes = {
   /**
    * The component's title.
    */
   title: PropTypes.string,
-  nombre:PropTypes.string,
-  pvc:PropTypes.number
-
+ 
 };
 
-NannyUpdateForm.defaultProps = {
-  title: "Editar pieza"
+NannyUpdateDisableForm.defaultProps = {
+  title: "Actualizar nanny"
 };
 
-export default NannyUpdateForm;
+export default NannyUpdateDisableForm;

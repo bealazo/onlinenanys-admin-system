@@ -31,7 +31,7 @@ import {API_NANNY_ALL, API_UPDATE_NANNY} from "constants/const";
 import Utils from "constants/utils_const"
 
 
-export default class ListNannysApproved extends React.Component{
+export default class ListNannysSuspend extends React.Component{
 
             constructor(props){
               super(props)
@@ -40,7 +40,6 @@ export default class ListNannysApproved extends React.Component{
                       pageSizeOptions: [5, 10, 15, 20, 25, 30],
                       pageSize: 5,
                       open_modal:false,
-                       
                       nannys:[]      
                        
               });
@@ -75,7 +74,7 @@ export default class ListNannysApproved extends React.Component{
                     console.log(data)
                   for (let index = 0; index < data.length; index++) {
                      
-                    if(data[index].user_status=="approved")
+                    if(data[index].user_status=="suspend")
                     nannys.push(data[index])                    
                   }
                 
@@ -102,7 +101,6 @@ export default class ListNannysApproved extends React.Component{
            
             
         }
-
         toggle(){
         
           this.setState({
@@ -126,7 +124,7 @@ export default class ListNannysApproved extends React.Component{
              if (statusCode === 200) {
                
                for (let index = 0; index < data.length; index++) {
-                 if(data[index].user_status=="approved")
+                 if(data[index].user_status=="suspend")
                  nannys.push(data[index])                    
                }
              
@@ -141,7 +139,7 @@ export default class ListNannysApproved extends React.Component{
            }).catch(error => console.log(error));
          
       }
-          /**
+        /**
      * Handles the disable nanny´s account.
      */
     handleDesactivate=(nanny)=> {
@@ -171,7 +169,8 @@ export default class ListNannysApproved extends React.Component{
            } else {
               console.log("Error",'No se ha podido desactivar la nanny')
            } 
-         }).catch(error => console.log(error));        
+         }).catch(error => console.log(error)); 
+        
     
       
     }   
@@ -287,7 +286,7 @@ export default class ListNannysApproved extends React.Component{
 
      this.props.history.push({
        
-      pathname:"/admin/actualizar-nanny-aprobada",
+      pathname:"/admin/actualizar-nanny-suspendida",
       state: {nanny:nanny,
         forces:forces,
         oportunities:oportunities,
@@ -346,7 +345,7 @@ export default class ListNannysApproved extends React.Component{
        
          if (statusCode === 200) {
           for (let index = 0; index < data.length; index++) {
-            if(data[index].user_status=="approved")
+            if(data[index].user_status=="suspend")
             nannys.push(data[index])                    
           }     
                    
@@ -366,8 +365,8 @@ export default class ListNannysApproved extends React.Component{
   
   return (
 <>
-{/* Modal update */}   
-<Modal isOpen={this.state.open_modal} toggle={this.toggle}>
+ {/* Modal update */}   
+ <Modal isOpen={this.state.open_modal} toggle={this.toggle}>
         <ModalHeader toggle={this.toggle}>Información</ModalHeader>
         <ModalBody>
         Nanny desactivada.
@@ -378,7 +377,7 @@ export default class ListNannysApproved extends React.Component{
     <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
-          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys aprobadas</h5>
+          <h5 className="text-white mb-0 font-weight-bold display-4">Nannys suspendidas</h5>
           </div>
         </Container>
       </div>
