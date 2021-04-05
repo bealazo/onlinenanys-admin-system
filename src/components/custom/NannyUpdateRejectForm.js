@@ -144,7 +144,21 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
                  value={form.image_path==null?"NO":"SI"}
                 readOnly
                />               
-             </Col>            
+             </Col>   
+             <Col md="4" className="form-group">
+                  <div className="card-profile-image" style={{marginTop:30}}>
+                  
+                      <img
+                        alt="..."
+                        className="rounded-circle"
+                        src={
+                           "https://onlinenanys.com/images/"+form.image_path
+                        }
+                      />
+                   
+                  </div>
+              
+              </Col>           
             
            </Row>
            <hr className="my-3" />
