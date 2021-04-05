@@ -369,6 +369,7 @@ export default class ListNannys extends React.Component{
    
    render() {
      const {nannys,pageSize,pageSizeOptions}=this.state
+     console.log(this.state.nannys)
   
   return (
 <>
