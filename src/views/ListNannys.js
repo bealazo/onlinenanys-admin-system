@@ -203,19 +203,18 @@ export default class ListNannys extends React.Component{
      let forcesarray=(nanny.nany_fortalezas!==null)? nanny.nany_fortalezas.split(","):[]
      let checked_colabora=forcesarray.includes("Colabora con Deberes")?true:false
      let checked_entusiasmo=forcesarray.includes("Entusiasmo y deseos de trabajar")?true:false
-     let checked_tar=forcesarray.includes("Realiza Tareas del Hogar")?true:false
-     let checked_jueg=forcesarray.includes("Juega y hace reír a los niños")?true:false
-     let checked_exp=forcesarray.includes("Experiencia con niños de todas las edades")?true:false
-     let checked_cert=forcesarray.includes("Certificado de Primeros Auxilios")?true:false
-     let checked_esP=forcesarray.includes("Estudios de Prescolar")?true:false
-     let checked_esI=forcesarray.includes("Estudios en Educación Infantil")?true:false
-     let checked_esCR=forcesarray.includes("Estudios de Cocina y Repostería")?true:false
-     let checked_estI=forcesarray.includes("Estudios relacionados con cuidados infantiles")?true:false
-     let checked_profE=forcesarray.includes("Profesión Enfermera")?true:false
-     let checked_profM=forcesarray.includes("Profesión Monitora de Deportes")?true:false
-     let checked_profA=forcesarray.includes("Profesión Auxiliar de Enfermería")?true:false
-     let checked_profP=forcesarray.includes("Profesión Profesora")?true:false
-     let checked_profPr=forcesarray.includes("Profesión Profesora de Preescolar - Educación Infantil")?true:false
+     let checked_tar=forcesarray.includes("Colabora en Tareas del Hogar")?true:false
+     let checked_jueg=forcesarray.includes("Entretiene y hace reír")?true:false
+     let checked_exp=forcesarray.includes("Hace deportes")?true:false
+     let checked_cert=forcesarray.includes("Hace manualidades")?true:false
+     let checked_esP=forcesarray.includes("Toca instrumento musical")?true:false
+     let checked_esI=forcesarray.includes("Pinta, dibuja y colorea")?true:false
+     let checked_esCR=forcesarray.includes("Estudios de Preescolar/Educación Infantil")?true:false
+     let checked_estI=forcesarray.includes("Estudios Superiores de algún tipo")?true:false
+     let checked_profE=forcesarray.includes("Certificado de Primeros Auxilios")?true:false
+     let checked_profM=forcesarray.includes("Estudios de Enfermería o Similares")?true:false
+     let checked_profA=forcesarray.includes("Monitora de Deportes")?true:false
+    
      let forces={
        "checked_colabora":checked_colabora,
        "checked_entusiasmo":checked_entusiasmo,
@@ -229,10 +228,7 @@ export default class ListNannys extends React.Component{
        "checked_estI":checked_estI,
        "checked_profE":checked_profE,
        "checked_profM":checked_profM,
-       "checked_profA":checked_profA,
-       "checked_profP":checked_profP,
-       "checked_profPr":checked_profPr
-
+       "checked_profA":checked_profA       
       }
      
      //Initialize Oportunities checkboxes
@@ -241,22 +237,18 @@ export default class ListNannys extends React.Component{
      let checked_soloman=oportunitiesarray.includes("Solo trabaja por las mañanas")?true:false
      let checked_solofinde=oportunitiesarray.includes("Solo trabaja fines de semanas")?true:false
      let checked_prefB=oportunitiesarray.includes("Prefiere trabajar con Bebes")?true:false
-     let checked_pref2=oportunitiesarray.includes("Prefiere trabajar con niños de 2-6")?true:false
-     let checked_pref6=oportunitiesarray.includes("Prefiere trabajar con niños de 6-12")?true:false
-     let checked_pref12=oportunitiesarray.includes("Prefiere trabajar con niños mayores de 12")?true:false
-     let checked_expsinT=oportunitiesarray.includes("Experiencia sin Titulación Especial")?true:false
+     let checked_pref2=oportunitiesarray.includes("Prefiere Trabajar con niños mayores de 2 años")?true:false
+     let checked_pref6=oportunitiesarray.includes("Prefiere Trabajar con niños mayores de 5 años")?true:false   
      let checked_expmen1=oportunitiesarray.includes("Experiencia menos de 1 año")?true:false
      let checked_soloexpF=oportunitiesarray.includes("Solo experiencia Familiar")?true:false
-     let checked_soloEsp=oportunitiesarray.includes("Solo Español - Natal")?true:false
+     let checked_soloEsp=oportunitiesarray.includes("Solo lengua materna")?true:false
      let oportunities={
       "checked_solotardes":checked_solotardes,
       "checked_soloman":checked_soloman,
       "checked_solofinde":checked_solofinde,
       "checked_prefB":checked_prefB,
       "checked_pref2":checked_pref2,
-      "checked_pref6":checked_pref6,
-      "checked_pref12":checked_pref12,
-      "checked_expsinT":checked_expsinT,
+      "checked_pref6":checked_pref6,       
       "checked_expmen1":checked_expmen1,
       "checked_soloexpF":checked_soloexpF,
       "checked_soloEsp":checked_soloEsp,
@@ -266,19 +258,31 @@ export default class ListNannys extends React.Component{
 
      //Initialize Comments checkboxes
      let commentsarray=(nanny.nany_comentarios!==null)? nanny.nany_comentarios.split(","):[]
-     let checked_org=commentsarray.includes("Organizada y Paciente")?true:false
-     let checked_div=commentsarray.includes("Divertida y Afable")?true:false
-     let checked_cons=commentsarray.includes("Consistente y Sistemática")?true:false
-     let checked_am=commentsarray.includes("Amable y Entusiasta")?true:false
-     let checked_car=commentsarray.includes("Cariñosa y Atenta")?true:false
-     let checked_rel=commentsarray.includes("Relajado y Tolerante")?true:false
+     let checked_org=commentsarray.includes("Organizada")?true:false
+     let checked_org1=commentsarray.includes("Paciente")?true:false
+     let checked_div=commentsarray.includes("Divertida")?true:false
+     let checked_div1=commentsarray.includes("Afable")?true:false
+     let checked_cons=commentsarray.includes("Consistente")?true:false
+     let checked_cons1=commentsarray.includes("Sistemática")?true:false
+     let checked_am=commentsarray.includes("Amable")?true:false
+     let checked_am1=commentsarray.includes("Entusiasta")?true:false
+     let checked_car=commentsarray.includes("Cariñosa")?true:false
+     let checked_car1=commentsarray.includes("Atenta")?true:false
+     let checked_rel=commentsarray.includes("Relajado")?true:false
+     let checked_rel1=commentsarray.includes("Tolerante")?true:false
      let comments={
       "checked_org":checked_org,
+      "checked_org1":checked_org1,
       "checked_div":checked_div,
+      "checked_div1":checked_div1,
       "checked_cons":checked_cons,
+      "checked_cons1":checked_cons1,
       "checked_am":checked_am,
+      "checked_am1":checked_am1,
       "checked_car":checked_car,
+      "checked_car1":checked_car1,
       "checked_rel":checked_rel,
+      "checked_rel1":checked_rel1,
      
      }
 
@@ -290,19 +294,24 @@ export default class ListNannys extends React.Component{
         oportunities:oportunities,
         comments:comments,
         checked_org:checked_org,
+        checked_org1:checked_org1,
         checked_div:checked_div,
+        checked_div1:checked_div1,
         checked_cons:checked_cons,
+        checked_cons1:checked_cons1,
         checked_am:checked_am,
+        checked_am1:checked_am1,
         checked_car:checked_car,
+        checked_car1:checked_car1,
         checked_rel:checked_rel,
+        checked_rel1:checked_rel1,
         checked_solotardes:checked_solotardes,
         checked_soloman:checked_soloman,
         checked_solofinde:checked_solofinde,
         checked_prefB:checked_prefB,
         checked_pref2:checked_pref2,
         checked_pref6:checked_pref6,
-        checked_pref12:checked_pref12,
-        checked_expsinT:checked_expsinT,
+      
         checked_expmen1:checked_expmen1,
         checked_soloexpF:checked_soloexpF,
         checked_soloEsp:checked_soloEsp,
@@ -318,9 +327,9 @@ export default class ListNannys extends React.Component{
         checked_estI:checked_estI,
         checked_profE:checked_profE,
         checked_profM:checked_profM,
-        checked_profA:checked_profA,
-        checked_profP:checked_profP,
-        checked_profPr:checked_profPr}
+        checked_profA:checked_profA
+      }
+        
     });
          
     }
