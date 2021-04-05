@@ -2,7 +2,7 @@ import React from "react";
 import { Container,Row, Modal, ModalHeader, ModalBody, ModalFooter  } from "reactstrap";
 
 import NannyUpdateApprovedForm from "../components/custom/NannyUpdateApprovedForm"
-import {API_UPDATE_NANNY} from "constants/const"
+import {API_UPDATE_NANNY, API_UPDATE_USER} from "constants/const"
 import Utils from "constants/utils_const"
 
 
@@ -22,7 +22,14 @@ class NannyUpdateApproved extends React.Component{
             comments:this.props.location.state.comments,
             profile:{selectprofile:this.props.location.state.nanny.nany_tipo_perfil},
             status:{selectstatus:"approved"},
-            reviews:{value:""},
+            reviews:{value:this.props.location.state.nanny.nany_observaciones},
+
+            //HERE
+            name:{value:this.props.location.state.nanny.user_first_name},
+            lastname:{value:this.props.location.state.nanny.user_last_name},
+            email:{value:this.props.location.state.nanny.user_email},
+            presentation:{value:this.props.location.state.nanny.user_description},
+
             open_modal:false,
 
             //initialize forces          
@@ -39,8 +46,7 @@ class NannyUpdateApproved extends React.Component{
             checked_profE:this.props.location.state.checked_profE,
             checked_profM:this.props.location.state.checked_profM,
             checked_profA:this.props.location.state.checked_profA,
-            checked_profP:this.props.location.state.checked_profP,
-            checked_profPr:this.props.location.state.checked_profPr,
+           
 
             //initialize oportunities          
             checked_solotardes:this.props.location.state.checked_solotardes,
@@ -48,20 +54,24 @@ class NannyUpdateApproved extends React.Component{
             checked_solofinde:this.props.location.state.checked_solofinde,
             checked_prefB:this.props.location.state.checked_prefB,
             checked_pref2:this.props.location.state.checked_pref2,
-            checked_pref6:this.props.location.state.checked_pref6,
-            checked_pref12:this.props.location.state.checked_pref12,
-            checked_expsinT:this.props.location.state.checked_expsinT,
+            checked_pref6:this.props.location.state.checked_pref6,          
             checked_expmen1:this.props.location.state.checked_expmen1,
             checked_soloexpF:this.props.location.state.checked_soloexpF,
             checked_soloEsp:this.props.location.state.checked_soloEsp,
 
             //initialize comments          
             checked_org:this.props.location.state.checked_org,
+            checked_org1:this.props.location.state.checked_org1,
             checked_div:this.props.location.state.checked_div,
+            checked_div1:this.props.location.state.checked_div1,
             checked_cons:this.props.location.state.checked_cons,
+            checked_cons1:this.props.location.state.checked_cons1,
             checked_am:this.props.location.state.checked_am,
+            checked_am1:this.props.location.state.checked_am1,
             checked_car:this.props.location.state.checked_car,
+            checked_car1:this.props.location.state.checked_car1,
             checked_rel:this.props.location.state.checked_rel,
+            checked_rel1:this.props.location.state.checked_rel1,
 
             error:null
             }
@@ -75,6 +85,13 @@ class NannyUpdateApproved extends React.Component{
         this.handleChangeStatus=this.handleChangeStatus.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
         this.handleChangeReviews=this.handleChangeReviews.bind(this)
+
+        //HERE
+        this.handleName=this.handleName.bind(this)
+        this.handleLastname=this.handleLastname.bind(this)
+        this.handleEmail=this.handleEmail.bind(this)
+        this.handlePresentation=this.handlePresentation.bind(this)
+
         this.toggle=this.toggle.bind(this)
         
    
@@ -138,12 +155,7 @@ class NannyUpdateApproved extends React.Component{
            if(name=="checked_profA"){this.setState({        
             checked_profA:!this.state.checked_profA,            
            });}
-           if(name=="checked_profP"){this.setState({        
-            checked_profP:!this.state.checked_profP,            
-           });}
-           if(name=="checked_profPr"){this.setState({        
-            checked_profPr:!this.state.checked_profPr,            
-           });}
+          
     
         this.setState({        
         forces:{...this.state.forces,[name]:value},
@@ -176,12 +188,7 @@ class NannyUpdateApproved extends React.Component{
            if(name=="checked_pref6"){this.setState({        
             checked_pref6:!this.state.checked_pref6,            
            });}
-           if(name=="checked_pref12"){this.setState({        
-            checked_pref12:!this.state.checked_pref12,            
-           });}
-           if(name=="checked_expsinT"){this.setState({        
-            checked_expsinT:!this.state.checked_expsinT,            
-           });}
+         
            if(name=="checked_expmen1"){this.setState({        
             checked_expmen1:!this.state.checked_expmen1,            
            });}
@@ -209,22 +216,39 @@ class NannyUpdateApproved extends React.Component{
         if(name=="checked_org"){this.setState({        
             checked_org:!this.state.checked_org,            
            });}
+           if(name=="checked_org1"){this.setState({        
+            checked_org1:!this.state.checked_org1,            
+           });}
            if(name=="checked_div"){this.setState({        
             checked_div:!this.state.checked_div,            
+           });}
+           if(name=="checked_div1"){this.setState({        
+            checked_div1:!this.state.checked_div1,            
            });}
            if(name=="checked_cons"){this.setState({        
             checked_cons:!this.state.checked_cons,            
            });}
+           if(name=="checked_cons1"){this.setState({        
+            checked_cons1:!this.state.checked_cons1,            
+           });}
            if(name=="checked_am"){this.setState({        
             checked_am:!this.state.checked_am,            
+           });}
+           if(name=="checked_am1"){this.setState({        
+            checked_am1:!this.state.checked_am1,            
            });}
            if(name=="checked_car"){this.setState({        
             checked_car:!this.state.checked_car,            
            });}
+           if(name=="checked_car1"){this.setState({        
+            checked_car1:!this.state.checked_car1,            
+           });}
            if(name=="checked_rel"){this.setState({        
             checked_rel:!this.state.checked_rel,            
            });}
-      
+           if(name=="checked_rel1"){this.setState({        
+            checked_rel1:!this.state.checked_rel1,            
+           });}
         this.setState({
         
         comments:{...this.state.comments,[name]:value}
@@ -274,6 +298,66 @@ class NannyUpdateApproved extends React.Component{
        
        
     }
+
+    //HERE
+
+    handleName(e)
+    {
+        
+        const target = e.target;
+        const value = target.value;
+       
+        this.setState({
+        
+        name:{...this.state.name,value}
+        });
+       
+       
+    }
+    handleLastname(e)
+    {
+        
+        const target = e.target;
+        const value = target.value;
+       
+        this.setState({
+        
+        lastname:{...this.state.lastname,value}
+        });
+       
+       
+    }
+    handleEmail(e)
+    {
+        
+        const target = e.target;
+        const value = target.value;
+       
+        this.setState({
+        
+        email:{...this.state.email,value}
+        });
+       
+       
+    }
+    handlePresentation(e)
+    {
+        
+        const target = e.target;
+        const value = target.value;
+       
+        this.setState({
+        
+        presentation:{...this.state.presentation,value}
+        });
+       
+       
+    }
+
+
+
+
+
     async handleSubmit (e){
        
         e.preventDefault()
@@ -293,38 +377,41 @@ class NannyUpdateApproved extends React.Component{
           
                     forces2["checked_entusiasmo"]===true?forces1+="Entusiasmo y deseos de trabajar,":forces1+=""
                     forces2["checked_colabora"]===true?forces1+="Colabora con Deberes,":forces1+=""    
-                    forces2["checked_tar"]===true?forces1+="Realiza Tareas del Hogar,":forces1+="" 
-                    forces2["checked_jueg"]===true?forces1+="Juega y hace reír a los niños,":forces1+="" 
-                    forces2["checked_exp"]===true?forces1+="Experiencia con niños de todas las edades,":forces1+="" 
-                    forces2["checked_cert"]===true?forces1+="Certificado de Primeros Auxilios,":forces1+="" 
-                    forces2["checked_esP"]===true?forces1+="Estudios de Prescolar,":forces1+="" 
-                    forces2["checked_esI"]===true?forces1+="Estudios en Educación Infantil,":forces1+="" 
-                    forces2["checked_esCR"]===true?forces1+="Estudios de Cocina y Repostería,":forces1+="" 
-                    forces2["checked_estI"]===true?forces1+="Profesión Enfermera,":forces1+="" 
-                    forces2["checked_profE"]===true?forces1+="Profesión Monitora de Deportes,":forces1+="" 
-                    forces2["checked_profM"]===true?forces1+="Profesión Auxiliar de Enfermería,":forces1+="" 
-                    forces2["checked_profA"]===true?forces1+="Profesión Profesora,":forces1+="" 
-                    forces2["checked_profP"]===true?forces1+="Profesión Profesora de Preescolar - Educación Infantil,":forces1+="" 
-                    forces2["checked_profPr"]===true?forces1+="Estudios relacionados con cuidados infantiles,":forces1+="" 
+                    forces2["checked_tar"]===true?forces1+="Colabora en Tareas del Hogar,":forces1+="" 
+                    forces2["checked_jueg"]===true?forces1+="Entretiene y hace reír,":forces1+="" 
+                    forces2["checked_exp"]===true?forces1+="Hace deportes,":forces1+="" 
+                    forces2["checked_cert"]===true?forces1+="Hace manualidades,":forces1+="" 
+                    forces2["checked_esP"]===true?forces1+="Toca instrumento musical,":forces1+="" 
+                    forces2["checked_esI"]===true?forces1+="Pinta, dibuja y colorea,":forces1+="" 
+                    forces2["checked_esCR"]===true?forces1+="Estudios de Preescolar/Educación Infantil,":forces1+="" 
+                    forces2["checked_estI"]===true?forces1+="Estudios Superiores de algún tipo,":forces1+="" 
+                    forces2["checked_profE"]===true?forces1+="Certificado de Primeros Auxilios,":forces1+="" 
+                    forces2["checked_profM"]===true?forces1+="Estudios de Enfermería o Similares,":forces1+="" 
+                    forces2["checked_profA"]===true?forces1+="Monitora de Deportes,":forces1+="" 
+                  
 
                     oportunities2["checked_solotardes"]===true?oportunities1+="Solo trabaja por las tardes,":oportunities1+="" 
                     oportunities2["checked_soloman"]===true?oportunities1+="Solo trabaja por las mañanas,":oportunities1+="" 
                     oportunities2["checked_solofinde"]===true?oportunities1+="Solo trabaja fines de semanas,":oportunities1+="" 
                     oportunities2["checked_prefB"]===true?oportunities1+="Prefiere trabajar con Bebes,":oportunities1+="" 
-                    oportunities2["checked_pref2"]===true?oportunities1+="Prefiere trabajar con niños de 2-6,":oportunities1+="" 
-                    oportunities2["checked_pref6"]===true?oportunities1+="Prefiere trabajar con niños de 6-12,":oportunities1+="" 
-                    oportunities2["checked_pref12"]===true?oportunities1+="Prefiere trabajar con niños mayores de 12,":oportunities1+="" 
-                    oportunities2["checked_expsinT"]===true?oportunities1+="Experiencia sin Titulación Especial,":oportunities1+="" 
+                    oportunities2["checked_pref2"]===true?oportunities1+="Prefiere Trabajar con niños mayores de 2 años,":oportunities1+="" 
+                    oportunities2["checked_pref6"]===true?oportunities1+="Prefiere Trabajar con niños mayores de 5 años,":oportunities1+=""                    
                     oportunities2["checked_expmen1"]===true?oportunities1+="Experiencia menos de 1 año,":oportunities1+="" 
                     oportunities2["checked_soloexpF"]===true?oportunities1+="Solo experiencia Familiar,":oportunities1+="" 
-                    oportunities2["checked_soloEsp"]===true?oportunities1+="Solo Español - Natal,":oportunities1+="" 
+                    oportunities2["checked_soloEsp"]===true?oportunities1+="Solo lengua materna,":oportunities1+="" 
                   
-                    comments2["checked_org"]===true?comments1+="Organizada y Paciente,":comments1+="" 
-                    comments2["checked_div"]===true?comments1+="Divertida y Afable,":comments1+="" 
-                    comments2["checked_cons"]===true?comments1+="Consistente y Sistemática,":comments1+="" 
-                    comments2["checked_am"]===true?comments1+="Amable y Entusiasta,":comments1+="" 
-                    comments2["checked_car"]===true?comments1+="Cariñosa y Atenta,":comments1+="" 
-                    comments2["checked_rel"]===true?comments1+="Relajado y Tolerante,":comments1+="" 
+                    comments2["checked_org"]===true?comments1+="Organizada,":comments1+="" 
+                    comments2["checked_org1"]===true?comments1+="Paciente,":comments1+="" 
+                    comments2["checked_div"]===true?comments1+="Divertida,":comments1+="" 
+                    comments2["checked_div1"]===true?comments1+="Afable,":comments1+="" 
+                    comments2["checked_cons"]===true?comments1+="Consistente,":comments1+="" 
+                    comments2["checked_cons1"]===true?comments1+="Sistemática,":comments1+=""
+                    comments2["checked_am"]===true?comments1+="Amable,":comments1+="" 
+                    comments2["checked_am1"]===true?comments1+="Entusiasta,":comments1+=""
+                    comments2["checked_car"]===true?comments1+="Cariñosa,":comments1+="" 
+                    comments2["checked_car1"]===true?comments1+="Atenta,":comments1+="" 
+                    comments2["checked_rel"]===true?comments1+="Relajado,":comments1+="" 
+                    comments2["checked_rel1"]===true?comments1+="Tolerante,":comments1+="" 
 
             let data={
                 user_id:this.state.form.user_id,
@@ -333,17 +420,50 @@ class NannyUpdateApproved extends React.Component{
                 nany_comentarios:comments1,
                 nany_tipo_perfil:this.state.profile.selectprofile,
                 nany_observaciones:this.state.reviews.value,
-                user_status:this.state.status.selectstatus
+                user_status:this.state.status.selectstatus,
+
             }
-            console.log(data)
-        
-                  
+
+               console.log(data)      
            //********CONEXION A LA API**********
 
-         fetch(API_UPDATE_NANNY, {
+       fetch(API_UPDATE_NANNY, {
             // mode:"no-cors",
              method: 'PUT', 
              body: JSON.stringify(data),                 
+             headers: new Headers({
+               'Content-Type': 'application/json'
+              })                   
+            
+           }).then(Utils.processResponse)
+           .then(res => {
+             const { statusCode, data } = res;
+           
+             if (statusCode === 200) {
+              // this.setState({open_modal:true});
+              
+             } else {
+                console.log("Error",'No se ha podido actualizar a la nanny')
+             } 
+           }).catch(error => console.log(error)); 
+
+
+           //HERE
+
+           let data1={
+            id:this.state.form.user_id,
+            user_first_name:this.state.name.value,
+            user_last_name:this.state.lastname.value,
+            user_email:this.state.email.value,
+            user_description:this.state.presentation.value
+        }
+
+        console.log(data1)
+
+           fetch(API_UPDATE_USER, {
+            // mode:"no-cors",
+             method: 'PUT', 
+             body: JSON.stringify(data1),                 
              headers: new Headers({
                'Content-Type': 'application/json'
               })                   
@@ -359,7 +479,8 @@ class NannyUpdateApproved extends React.Component{
                 console.log("Error",'No se ha podido actualizar a la nanny')
              } 
            }).catch(error => console.log(error)); 
-          
+           
+           
 
             
         } catch (error) {
@@ -434,27 +555,30 @@ class NannyUpdateApproved extends React.Component{
                     checked_profE={this.state.checked_profE}
                     checked_profM={this.state.checked_profM}
                     checked_profA={this.state.checked_profA}
-                    checked_profP={this.state.checked_profP}
-                    checked_profPr={this.state.checked_profPr}
+                   
 
                     checked_solotardes={this.state.checked_solotardes}
                     checked_soloman={this.state.checked_soloman}
                     checked_solofinde={this.state.checked_solofinde}
                     checked_prefB={this.state.checked_prefB}
                     checked_pref2={this.state.checked_pref2}
-                    checked_pref6={this.state.checked_pref6}
-                    checked_pref12={this.state.checked_pref12}
-                    checked_expsinT={this.state.checked_expsinT}
+                    checked_pref6={this.state.checked_pref6}                   
                     checked_expmen1={this.state.checked_expmen1}
                     checked_soloexpF={this.state.checked_soloexpF}
                     checked_soloEsp={this.state.checked_soloEsp}
 
                     checked_org={this.state.checked_org}
+                    checked_org1={this.state.checked_org1}
                     checked_div={this.state.checked_div}
+                    checked_div1={this.state.checked_div1}
                     checked_cons={this.state.checked_cons}
+                    checked_cons1={this.state.checked_cons1}
                     checked_am={this.state.checked_am}
+                    checked_am1={this.state.checked_am1}
                     checked_car={this.state.checked_car}
+                    checked_car1={this.state.checked_car1}
                     checked_rel={this.state.checked_rel}
+                    checked_rel1={this.state.checked_rel1}
                    
                    
                     onChangeForces={this.handleChangeForces}
@@ -465,7 +589,12 @@ class NannyUpdateApproved extends React.Component{
                     onChangeReviews={this.handleChangeReviews}
                     onSubmit={this.handleSubmit}
                     onCancel={this.handleClick}
-                 
+
+                    //HERE
+                    onChangeName={this.handleName}
+                    onChangeLastname={this.handleLastname}
+                    onChangeEmail={this.handleEmail}
+                    onChangePresentation={this.handlePresentation}                 
                 />
                 
             </Container>

@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 
                                                                                                                                                                                                                               
-const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,checked_tar,checked_jueg,checked_exp,checked_cert,checked_esP,checked_esI,checked_esCR,checked_profE,checked_profM,checked_profA,checked_profP,checked_profPr,checked_estI,checked_solotardes,checked_soloman,checked_solofinde,checked_prefB, checked_pref2, checked_pref6,checked_pref12,checked_expsinT,checked_expmen1,checked_soloexpF,checked_soloEsp,checked_org,checked_div,checked_cons,checked_am,checked_car,checked_rel,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel}) => (
+const NannyUpdateDisableForm = ({ form,checked_org1,checked_div1,checked_cons1,checked_am1,checked_car1,checked_rel1,  checked_colabora,checked_entusiasmo,checked_tar,checked_jueg,checked_exp,checked_cert,checked_esP,checked_esI,checked_esCR,checked_profE,checked_profM,checked_profA,checked_profP,checked_profPr,checked_estI,checked_solotardes,checked_soloman,checked_solofinde,checked_prefB, checked_pref2, checked_pref6,checked_pref12,checked_expsinT,checked_expmen1,checked_soloexpF,checked_soloEsp,checked_org,checked_div,checked_cons,checked_am,checked_car,checked_rel,onChangeForces,onChangeOportunities,onChangeComments,onChangeProfile,onChangeStatus,onChangeReviews,onSubmit,onCancel,onChangeName,onChangeLastname,onChangeEmail,onChangePresentation}) => (
  
   <Card className="mt-1">
     
@@ -41,8 +41,8 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
                   <Input
                     id="user_first_name"
                     name="user_first_name"
-                    value={form.user_first_name}
-                    readOnly                  
+                    defaultValue={form.user_first_name}
+                    onChange= {onChangeName}                  
 
                   />
                  
@@ -53,8 +53,8 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
                    
                     id="user_last_name"
                     name="user_last_name"
-                    value={form.user_last_name}
-                    readOnly
+                    defaultValue={form.user_last_name}
+                    onChange={onChangeLastname}
                     
                   />
                
@@ -79,20 +79,21 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
                <Input
                  id="user_email"
                  name="user_email"
-                 value={form.user_email}
-                 readOnly                  
+                 defaultValue={form.user_email}
+                onChange={onChangeEmail}                 
 
                />
               
              </Col>
+
              <Col md="4" className="form-group">
                <label>Presentación</label>
                <Input
                 
                  id="user_description"
                  name="user_description"
-                 value={form.user_description}
-                 readOnly
+                 defaultValue={form.user_description}
+                 onChange={onChangePresentation}
                  
                />
             
@@ -360,7 +361,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_tar" checked={checked_tar} onChange={onChangeForces}/>
-                Realiza Tareas del Hogar
+                Colabora en Tareas del Hogar
               </Label>
               </FormGroup>
               </Col>
@@ -368,7 +369,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name= "checked_jueg" checked={checked_jueg} onChange={onChangeForces}/>
-                Juega y hace reír a los niños
+                Entretiene y hace reír
               </Label>
               </FormGroup>
               </Col>
@@ -376,7 +377,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name= "checked_exp" checked={checked_exp} onChange={onChangeForces}/>
-                Experiencia con niños de todas las edades
+                Hace deportes
               </Label>
               </FormGroup>
               </Col>
@@ -384,7 +385,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name= "checked_cert" checked={checked_cert} onChange={onChangeForces} />
-                Certificado de Primeros Auxilios
+                Hace manualidades
               </Label>
               </FormGroup>
               </Col>
@@ -394,7 +395,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
                 <FormGroup check>
               <Label check>
                 <Input type="checkbox" name= "checked_esP" checked={checked_esP} onChange={onChangeForces}/>
-                Estudios de Prescolar
+                Toca instrumento musical
               </Label>
           
             </FormGroup>
@@ -403,7 +404,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox"name= "checked_esI" checked={checked_esI} onChange={onChangeForces}/>
-                Estudios en Educación Infantil
+                Pinta, dibuja y colorea
               </Label>
               </FormGroup>
               </Col>
@@ -411,7 +412,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name= "checked_esCR" checked={checked_esCR} onChange={onChangeForces} />
-                Estudios de Cocina y Repostería
+                Estudios de Preescolar/Educación Infantil
               </Label>
               </FormGroup>
               </Col>
@@ -419,7 +420,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name= "checked_estI" checked={checked_estI} onChange={onChangeForces} />
-                Estudios relacionados con cuidados infantiles
+                Estudios Superiores de algún tipo
               </Label>
               </FormGroup>
               </Col>
@@ -427,7 +428,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_profE" checked={checked_profE} onChange={onChangeForces}/>
-                Profesión Enfermera
+                Certificado de Primeros Auxilios
               </Label>
               </FormGroup>
               </Col>
@@ -435,7 +436,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_profM" checked={checked_profM} onChange={onChangeForces}/>
-                Profesión Monitora de Deportes
+                Estudios de Enfermería o Similares
               </Label>
               </FormGroup>
               </Col>
@@ -445,28 +446,12 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
                 <FormGroup check>
               <Label check>
                 <Input type="checkbox" name="checked_profA" checked={checked_profA} onChange={onChangeForces}/>
-                Profesión Auxiliar de Enfermería
+                Monitora de Deportes
               </Label>
           
             </FormGroup>
             </Col>
-            <Col md="2" className="form-group">
-            <FormGroup check>
-            <Label check>
-                <Input type="checkbox" name="checked_profP" checked={checked_profP} onChange={onChangeForces} />
-                Profesión Profesora
-              </Label>
-              </FormGroup>
-              </Col>
-              <Col md="2" className="form-group">
-            <FormGroup check>
-            <Label check>
-                <Input type="checkbox" name="checked_profPr" checked={checked_profPr} onChange={onChangeForces}/>
-                Profesión Profesora de Preescolar - Educación Infantil
-              </Label>
-              </FormGroup>
-              </Col>
-            
+         
            </Row>
 
 
@@ -509,7 +494,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_pref2"checked={checked_pref2} onChange={onChangeOportunities}/>
-                Prefiere trabajar con niños de 2-6
+                Prefiere Trabajar con niños mayores de 2 años
               </Label>
               </FormGroup>
               </Col>
@@ -517,29 +502,13 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_pref6" checked={checked_pref6} onChange={onChangeOportunities}/>
-                Prefiere trabajar con niños de 6-12
+                Prefiere Trabajar con niños mayores de 5 años
               </Label>
               </FormGroup>
               </Col>
            </Row>
            <Row form className="mt-2">
-           <Col md="2" className="form-group">
-                <FormGroup check>
-              <Label check>
-                <Input type="checkbox" name="checked_pref12"checked={checked_pref12} onChange={onChangeOportunities} />
-                Prefiere trabajar con niños mayores de 12
-              </Label>
           
-            </FormGroup>
-            </Col>
-            <Col md="2" className="form-group">
-            <FormGroup check>
-            <Label check>
-                <Input type="checkbox" name="checked_expsinT" checked={checked_expsinT} onChange={onChangeOportunities} />
-                Experiencia sin Titulación Especial
-              </Label>
-              </FormGroup>
-              </Col>
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
@@ -560,7 +529,7 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_soloEsp" checked={checked_soloEsp} onChange={onChangeOportunities} />
-                Solo Español - Natal
+                Solo lengua materna
               </Label>
               </FormGroup>
               </Col>
@@ -573,7 +542,16 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
                 <FormGroup check>
               <Label check>
                 <Input type="checkbox" name="checked_org"  checked={checked_org} onChange={onChangeComments}/>
-                Organizada y Paciente
+                Organizada
+              </Label>
+          
+            </FormGroup>
+            </Col>
+            <Col md="2" className="form-group">
+                <FormGroup check>
+              <Label check>
+                <Input type="checkbox" name="checked_org1"  checked={checked_org1} onChange={onChangeComments}/>
+               Paciente
               </Label>
           
             </FormGroup>
@@ -582,7 +560,15 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_div"  checked={checked_div}onChange={onChangeComments}/>
-                Divertida y Afable
+                Divertida
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" name="checked_div1"  checked={checked_div1}onChange={onChangeComments}/>
+                Afable
               </Label>
               </FormGroup>
               </Col>
@@ -590,15 +576,33 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_cons"  checked={checked_cons}onChange={onChangeComments}/>
-                Consistente y Sistemática
+                Consistente
               </Label>
               </FormGroup>
               </Col>
               <Col md="2" className="form-group">
             <FormGroup check>
             <Label check>
+                <Input type="checkbox" name="checked_cons1"  checked={checked_cons1}onChange={onChangeComments}/>
+                Sistemática
+              </Label>
+              </FormGroup>
+              </Col>
+              </Row>
+              <Row form>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
                 <Input type="checkbox" name="checked_am"  checked={checked_am}onChange={onChangeComments} />
-                Amable y Entusiasta
+                Amable
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" name="checked_am1"  checked={checked_am1}onChange={onChangeComments} />
+              Entusiasta
               </Label>
               </FormGroup>
               </Col>
@@ -606,7 +610,15 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_car"  checked={checked_car} onChange={onChangeComments}/>
-                Cariñosa y Atenta
+                Cariñosa
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" name="checked_car1"  checked={checked_car1} onChange={onChangeComments}/>
+              Atenta
               </Label>
               </FormGroup>
               </Col>
@@ -614,7 +626,15 @@ const NannyUpdateDisableForm = ({ form, checked_colabora,checked_entusiasmo,chec
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_rel"  checked={checked_rel} onChange={onChangeComments} />
-                Relajado y Tolerante
+                Relajado
+              </Label>
+              </FormGroup>
+              </Col>
+              <Col md="2" className="form-group">
+            <FormGroup check>
+            <Label check>
+                <Input type="checkbox" name="checked_rel1"  checked={checked_rel1} onChange={onChangeComments} />
+                Tolerante
               </Label>
               </FormGroup>
               </Col>
