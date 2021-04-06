@@ -40,7 +40,8 @@ export default class ListNannysReject extends React.Component{
             pageSizeOptions: [5, 10, 15, 20, 25, 30],
             pageSize: 5,
             open_modal:false,
-            nannys:[]      
+            nannys:[],
+            total_pending:0         
              
     });
 
@@ -77,7 +78,7 @@ async componentDidMount(){
           nannys.push(data[index])                    
         }
       
-        this.setState({nannys: nannys}); 
+        this.setState({nannys: nannys, total_pending:nannys.length}); 
       // Initialize the fuzzy searcher.
      this.searcher = new FuzzySearch(nannys, ["user_id","user_first_name", "user_last_name","user_email","user_mobile"], {
       caseSensitive: false
@@ -127,7 +128,7 @@ fetch(API_NANNY_ALL, {
        nannys.push(data[index])                    
      }
    
-     this.setState({nannys: nannys}); 
+     this.setState({nannys: nannys, total_pending:nannys.length}); 
    // Initialize the fuzzy searcher.
   this.searcher = new FuzzySearch(nannys, ["user_id","user_first_name", "user_last_name","user_email","user_mobile"], {
    caseSensitive: false
@@ -356,7 +357,7 @@ for (let index = 0; index < data.length; index++) {
   nannys.push(data[index])                    
 }     
          
- this.setState({nannys: nannys}); 
+ this.setState({nannys: nannys, total_pending:nannys.length}); 
 } else {
 console.log("Error",'No se ha podido obtener el listado')
 } 
@@ -392,22 +393,13 @@ Nanny desactivada.
 {/* Page content */}
 <Container className="mt--7" fluid>
 <Row className="justify-content-end mb-2">
-                  {/* Filters :: Page Size */}
-               {/*  <Col className="file-manager__filters__rows d-flex" md="2">
-                      <span>Mostrar: </span>
-                      <Input type="select" name="select" id="exampleSelect"
-                          size="sm"
-                          value={pageSize}
-                          onChange={this.handlePageSizeChange}
-                      >
-                      {pageSizeOptions.map((size, idx) => (
-                          <option key={idx} value={size}>
-                              {size} filas
-                          </option>
-                      ))}
-                      </Input>
-                  </Col>  */}
-
+                              <Col md="1">
+                                <h3 className="text-white font-weight-bold">Total:</h3>
+                               
+                            </Col>
+                            <Col md="1">
+                            <h3 className="text-white font-weight-bold">{this.state.total_pending}</h3>
+                            </Col>
                   {/* Filters :: Search */}
                   <Col className="file-manager__filters__search d-flex" md="2">
                       <InputGroup seamless size="sm" className="ml-auto">
