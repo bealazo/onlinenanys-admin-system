@@ -689,7 +689,7 @@ const NannyUpdateForm = ({ form, checked_org1,checked_div1,checked_cons1,checked
                   <option selected={(form.user_status=="reject")?true:false} value="reject">Rechazado</option>
                   <option selected={(form.user_status=="suspend")?true:false} value="suspend">Suspendido</option>
                   <option selected={(form.user_status=="disabled")?true:false} value="disable">Desactivado</option>
-                  <option selected={(form.user_status==""||form.user_status=="pending")?true:false} value="pending">Pendiente</option>
+                 
                   
                                 
                 </Input>
