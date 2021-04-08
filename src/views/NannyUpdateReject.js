@@ -400,17 +400,17 @@ class NannyUpdateReject extends React.Component{
                     oportunities2["checked_soloexpF"]===true?oportunities1+="Solo experiencia Familiar,":oportunities1+="" 
                     oportunities2["checked_soloEsp"]===true?oportunities1+="Solo lengua materna,":oportunities1+="" 
                   
-                    comments2["checked_org"]===true?comments1+="Organizada,":comments1+="" 
+                    comments2["checked_org"]===true?comments1+="Organizada/o,":comments1+="" 
                     comments2["checked_org1"]===true?comments1+="Paciente,":comments1+="" 
-                    comments2["checked_div"]===true?comments1+="Divertida,":comments1+="" 
+                    comments2["checked_div"]===true?comments1+="Divertida/o,":comments1+="" 
                     comments2["checked_div1"]===true?comments1+="Afable,":comments1+="" 
                     comments2["checked_cons"]===true?comments1+="Consistente,":comments1+="" 
-                    comments2["checked_cons1"]===true?comments1+="Sistemática,":comments1+=""
+                    comments2["checked_cons1"]===true?comments1+="Sistemática/o,":comments1+=""
                     comments2["checked_am"]===true?comments1+="Amable,":comments1+="" 
                     comments2["checked_am1"]===true?comments1+="Entusiasta,":comments1+=""
-                    comments2["checked_car"]===true?comments1+="Cariñosa,":comments1+="" 
-                    comments2["checked_car1"]===true?comments1+="Atenta,":comments1+="" 
-                    comments2["checked_rel"]===true?comments1+="Relajado,":comments1+="" 
+                    comments2["checked_car"]===true?comments1+="Cariñosa/o,":comments1+="" 
+                    comments2["checked_car1"]===true?comments1+="Atenta/o,":comments1+="" 
+                    comments2["checked_rel"]===true?comments1+="Relajada/o,":comments1+="" 
                     comments2["checked_rel1"]===true?comments1+="Tolerante,":comments1+="" 
 
             let data={

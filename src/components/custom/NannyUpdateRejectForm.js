@@ -556,7 +556,7 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
                 <FormGroup check>
               <Label check>
                 <Input type="checkbox" name="checked_org"  checked={checked_org} onChange={onChangeComments}/>
-                Organizada
+                Organizada/o
               </Label>
           
             </FormGroup>
@@ -574,7 +574,7 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_div"  checked={checked_div}onChange={onChangeComments}/>
-                Divertida
+                Divertida/o
               </Label>
               </FormGroup>
               </Col>
@@ -598,7 +598,7 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_cons1"  checked={checked_cons1}onChange={onChangeComments}/>
-                Sistemática
+                Sistemática/o
               </Label>
               </FormGroup>
               </Col>
@@ -624,7 +624,7 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_car"  checked={checked_car} onChange={onChangeComments}/>
-                Cariñosa
+                Cariñosa/o
               </Label>
               </FormGroup>
               </Col>
@@ -632,7 +632,7 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_car1"  checked={checked_car1} onChange={onChangeComments}/>
-              Atenta
+              Atenta/o
               </Label>
               </FormGroup>
               </Col>
@@ -640,7 +640,7 @@ const NannyUpdateRejectForm = ({ form,checked_org1,checked_div1,checked_cons1,ch
             <FormGroup check>
             <Label check>
                 <Input type="checkbox" name="checked_rel"  checked={checked_rel} onChange={onChangeComments} />
-                Relajado
+                Relajada/o
               </Label>
               </FormGroup>
               </Col>
