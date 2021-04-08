@@ -259,17 +259,17 @@ let oportunities={
 
 //Initialize Comments checkboxes
 let commentsarray=(nanny.nany_comentarios!==null)? nanny.nany_comentarios.split(","):[]
-let checked_org=commentsarray.includes("Organizada")?true:false
+let checked_org=commentsarray.includes("Organizada/o")?true:false
 let checked_org1=commentsarray.includes("Paciente")?true:false
-let checked_div=commentsarray.includes("Divertida")?true:false
+let checked_div=commentsarray.includes("Divertida/o")?true:false
 let checked_div1=commentsarray.includes("Afable")?true:false
 let checked_cons=commentsarray.includes("Consistente")?true:false
-let checked_cons1=commentsarray.includes("Sistemática")?true:false
+let checked_cons1=commentsarray.includes("Sistemática/o")?true:false
 let checked_am=commentsarray.includes("Amable")?true:false
 let checked_am1=commentsarray.includes("Entusiasta")?true:false
-let checked_car=commentsarray.includes("Cariñosa")?true:false
-let checked_car1=commentsarray.includes("Atenta")?true:false
-let checked_rel=commentsarray.includes("Relajado")?true:false
+let checked_car=commentsarray.includes("Cariñosa/o")?true:false
+let checked_car1=commentsarray.includes("Atenta/o")?true:false
+let checked_rel=commentsarray.includes("Relajada/o")?true:false
 let checked_rel1=commentsarray.includes("Tolerante")?true:false
 let comments={
 "checked_org":checked_org,
