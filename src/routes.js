@@ -25,6 +25,8 @@ import Icons from "views/examples/Icons.js";
 
 import ListNannys from "views/ListNannys"
 import Home from "views/Home"
+
+//Nannys
 import NannyUpdate from "views/NannyUpdate"
 import NannyUpdateApproved from "views/NannyUpdateApproved"
 import NannyUpdateReject from "views/NannyUpdateReject"
@@ -34,6 +36,24 @@ import ListNannysApproved from "views/ListNannysApproved"
 import ListNannysReject from "views/ListNannysReject"
 import ListNannysSuspend from "views/ListNannysSuspend"
 import ListNannysDisabled from "views/ListNannysDisabled"
+
+//Daddys
+import ListDaddys from "views/Daddys/ListDaddys"
+import ViewDaddy from "views/Daddys/ViewDaddy"
+
+//Bookings
+import ListBookingPending from "views/Bookings/ListBookingPending"
+import ListBookingAccept from "views/Bookings/ListBookingAccept"
+import ListBookingDo from "views/Bookings/ListBookingDo"
+import ListBookingPaid from "views/Bookings/ListBookingPaid"
+import ListBookingCancel from "views/Bookings/ListBookingCancel"
+import ListBookingReject from "views/Bookings/ListBookingReject"
+import BookingPending from "views/Bookings/BookingPending"
+import BookingAccept from "views/Bookings/BookingAccept"
+import BookingDo from "views/Bookings/BookingDo"
+import BookingPaid from "views/Bookings/BookingPaid"
+import BookingCancel from "views/Bookings/BookingCancel"
+import BookingReject from "views/Bookings/BookingReject"
 
 var routes = [
   {
@@ -78,6 +98,57 @@ var routes = [
     component: ListNannysDisabled,
     layout: "/admin",
   },
+  
+  {
+    path: "/daddys",
+    name: "Daddys",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: ListDaddys,
+    layout: "/admin",
+  } ,
+  {
+    path: "/bookings-pendientes",
+    name: "Bookings Pendientes",
+    icon: "ni ni-bullet-list-67 text-info",    
+    component: ListBookingPending,
+    layout: "/admin",
+  } ,
+  {
+    path: "/bookings-aceptados",
+    name: "Bookings Aceptados",
+    icon: "ni ni-bullet-list-67 text-primary",    
+    component: ListBookingAccept,
+    layout: "/admin",
+  } ,
+  {
+    path: "/bookings-pagados",
+    name: "Bookings Pagados",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: ListBookingPaid,
+    layout: "/admin",
+  } ,
+  {
+    path: "/bookings-finalizados",
+    name: "Bookings Finalizados",
+    icon: "ni ni-bullet-list-67 text-muted",    
+    component: ListBookingDo,
+    layout: "/admin",
+  } ,
+  {
+    path: "/bookings-rechazados",
+    name: "Bookings Rechazados",
+    icon: "ni ni-bullet-list-67 text-red",    
+    component: ListBookingReject,
+    layout: "/admin",
+  } ,
+  {
+    path: "/bookings-cancelados",
+    name: "Bookings Cancelados",
+    icon: "ni ni-bullet-list-67 text-warning",    
+    component: ListBookingCancel,
+    layout: "/admin",
+  } ,
+  
   {
     path: "/actualizar",
     name: "Actualizar Nanny",
@@ -114,7 +185,56 @@ var routes = [
     icon: "ni ni-bullet-list-67 text-red",    
     component: NannyUpdateDisable,
     layout: "/admin",
-  } 
+  } ,
+  {
+    path: "/ver-daddy",
+    name: "Ver Daddy",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: ViewDaddy,
+    layout: "/admin",
+  } ,
+  {
+    path: "/ver-booking-pendiente",
+    name: "Ver Booking Pendiente",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: BookingPending,
+    layout: "/admin",
+  } ,
+  {
+    path: "/ver-booking-aceptado",
+    name: "Ver Booking Aceptado",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: BookingAccept,
+    layout: "/admin",
+  } ,
+  {
+    path: "/ver-booking-finalizado",
+    name: "Ver Booking Finalizado",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: BookingDo,
+    layout: "/admin",
+  } ,
+  {
+    path: "/ver-booking-rechazado",
+    name: "Ver Booking Rechazado",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: BookingReject,
+    layout: "/admin",
+  } ,
+  {
+    path: "/ver-booking-pagado",
+    name: "Ver Booking Pagado",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: BookingPaid,
+    layout: "/admin",
+  } ,
+  {
+    path: "/ver-booking-cancelado",
+    name: "Ver Booking Cancelado",
+    icon: "ni ni-bullet-list-67 text-success",    
+    component: BookingCancel,
+    layout: "/admin",
+  } ,
  
  
   /* {

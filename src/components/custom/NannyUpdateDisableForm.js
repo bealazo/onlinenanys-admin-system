@@ -688,7 +688,7 @@ const NannyUpdateDisableForm = ({ form,checked_org1,checked_div1,checked_cons1,c
                   <option selected={(form.user_status=="approved")?true:false} value="approved">Aprobado</option>
                   <option selected={(form.user_status=="reject")?true:false} value="reject">Rechazado</option>
                   <option selected={(form.user_status=="suspend")?true:false} value="suspend">Suspendido</option>
-                  <option selected={(form.user_status=="disabled")?true:false} value="disable">Desactivado</option>
+                  <option selected={(form.user_status=="disabled")?true:false} value="disabled">Desactivado</option>
                  
                   
                                 
