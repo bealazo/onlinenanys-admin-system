@@ -79,7 +79,7 @@ export default class ListNannys extends React.Component{
                   }
                 
                   this.setState({nannys: nannys, total_pending:nannys.length}); 
-                // Initialize the fuzzy searcher.
+               
                this.searcher = new FuzzySearch(nannys, ["user_id","user_first_name", "user_last_name","user_email","user_mobile"], {
                 caseSensitive: false
               });
