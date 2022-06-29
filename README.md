@@ -4,7 +4,7 @@ Proyecto creado para la gestión interna de las niñeras y padres registrados a 
 Así como del estado de los bookings realizados.
 ## Tech Stack
 
-**Client:** Reactjs
+**Client:** Reactjs, consumo de api rest
 
 
 ## Screenshots
